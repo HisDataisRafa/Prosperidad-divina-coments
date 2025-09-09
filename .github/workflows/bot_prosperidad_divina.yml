@@ -1,11 +1,9 @@
-# .github/workflows/bot_prosperidad_divina.yml
 name: 🙏 Bot Prosperidad Divina - Comentarios Automáticos
 
 on:
   schedule:
-    # Ejecutar cada 4 horas para máxima cobertura
-    - cron: '0 */4 * * *'  # 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC
-  workflow_dispatch:  # Permitir ejecución manual
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
 
 env:
   PYTHON_VERSION: '3.9'
@@ -34,7 +32,6 @@ jobs:
       run: |
         echo "fecha=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         echo "hora=$(date +'%H:%M')" >> $GITHUB_OUTPUT
-        echo "timestamp=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
         echo "fecha_readable=$(date +'%d de %B')" >> $GITHUB_OUTPUT
         
     - name: 👑 Ejecutar Bot Prosperidad Divina
@@ -46,107 +43,122 @@ jobs:
       run: |
         python bot_prosperidad_divina_automatico.py
         
-    - name: 📊 Generar reporte de bendiciones
+    - name: 📊 Crear script de reporte
       run: |
-        echo "# 👑 Reporte Prosperidad Divina - ${{ steps.datetime.outputs.fecha_readable }} ${{ steps.datetime.outputs.hora }}" > REPORTE_BENDICIONES.md
-        echo "" >> REPORTE_BENDICIONES.md
-        echo "## ✨ Ministerio Digital de Hoy:" >> REPORTE_BENDICIONES.md
-        echo "" >> REPORTE_BENDICIONES.md
+        cat > generar_reporte.py << 'EOF'
+        import json
+        import os
+        from datetime import datetime
         
-        if [ -f "stats_prosperidad_divina.json" ]; then
-          python -c "
-import json
-import datetime
-try:
-    with open('stats_prosperidad_divina.json', 'r') as f:
-        stats = json.load(f)
-    
-    print(f\"- 🎯 **Comentarios bendecidos:** {stats.get('respuestas_exitosas', 0)}\")
-    print(f\"- 👑 **Gemini Pro usado:** {stats.get('pro_usado', 0)}/46 (calidad premium)\")
-    print(f\"- ⚡ **Gemini Flash usado:** {stats.get('flash_usado', 0)}/1450 (respuestas rápidas)\")
-    print(f\"- 💫 **Total bendiciones:** {stats.get('respuestas_exitosas', 0)}/1496 diarias\")
-    print(f\"- 🙏 **Peticiones de oración:** {stats.get('peticiones_oracion', 0)}\")
-    print(f\"- 🎉 **Testimonios celebrados:** {stats.get('testimonios_prosperidad', 0)}\")
-    print(f\"- 💎 **Respuestas de abundancia:** {stats.get('respuestas_abundancia', 0)}\")
-    print(f\"- 📺 **Videos monitoreados:** {stats.get('videos_procesados', 0)}\")
-    print(f\"- 📈 **Backlog procesado:** {stats.get('backlog_procesado', 0)}\")
-    print(f\"- ⏰ **Última bendición:** {stats.get('ultima_ejecucion', 'N/A')[:16]}\")
-    
-    # Calcular eficiencia
-    total_usado = stats.get('pro_usado', 0) + stats.get('flash_usado', 0)
-    eficiencia = (total_usado / 1496) * 100 if total_usado > 0 else 0
-    print(f\"- 📊 **Eficiencia del día:** {eficiencia:.1f}% de capacidad usada\")
-    
-except Exception as e:
-    print('- ❌ **Primera ejecución o error en estadísticas**')
-    print(f'- 🔧 **Error:** {str(e)}')
-" >> REPORTE_BENDICIONES.md
-        else
-          echo "- ⚠️ **Primera ejecución del bot - inicializando sistema**" >> REPORTE_BENDICIONES.md
-        fi
+        # Obtener fecha del environment
+        fecha = os.environ.get('FECHA_READABLE', 'Hoy')
+        hora = os.environ.get('HORA', '00:00')
         
-        echo "" >> REPORTE_BENDICIONES.md
-        echo "## 📺 Videos del Ministerio Monitoreados:" >> REPORTE_BENDICIONES.md
-        echo "" >> REPORTE_BENDICIONES.md
+        # Crear reporte base
+        reporte = f"""# 👑 Reporte Prosperidad Divina - {fecha} {hora}
+
+## ✨ Ministerio Digital de Hoy:
+
+"""
         
-        if [ -f "videos_prosperidad_procesados.json" ]; then
-          python -c "
-import json
-try:
-    with open('videos_prosperidad_procesados.json', 'r') as f:
-        videos = json.load(f)
-    
-    for video in videos.get('videos', []):
-        titulo = video.get('titulo', 'Video')[:50]
-        tipo = video.get('tipo_detectado', 'general')
+        # Leer estadísticas si existen
+        try:
+            with open('stats_prosperidad_divina.json', 'r') as f:
+                stats = json.load(f)
+            
+            reporte += f"- 🎯 **Comentarios bendecidos:** {stats.get('respuestas_exitosas', 0)}\n"
+            reporte += f"- 👑 **Gemini Pro usado:** {stats.get('pro_usado', 0)}/46 (calidad premium)\n"
+            reporte += f"- ⚡ **Gemini Flash usado:** {stats.get('flash_usado', 0)}/1450 (respuestas rápidas)\n"
+            reporte += f"- 💫 **Total bendiciones:** {stats.get('respuestas_exitosas', 0)}/1496 diarias\n"
+            reporte += f"- 🙏 **Peticiones de oración:** {stats.get('peticiones_oracion', 0)}\n"
+            reporte += f"- 🎉 **Testimonios celebrados:** {stats.get('testimonios_prosperidad', 0)}\n"
+            reporte += f"- 💎 **Respuestas de abundancia:** {stats.get('respuestas_abundancia', 0)}\n"
+            reporte += f"- 📺 **Videos monitoreados:** {stats.get('videos_procesados', 0)}\n"
+            reporte += f"- 📈 **Backlog procesado:** {stats.get('backlog_procesado', 0)}\n"
+            reporte += f"- ⏰ **Última bendición:** {stats.get('ultima_ejecucion', 'N/A')[:16]}\n"
+            
+            # Calcular eficiencia
+            total_usado = stats.get('pro_usado', 0) + stats.get('flash_usado', 0)
+            eficiencia = (total_usado / 1496) * 100 if total_usado > 0 else 0
+            reporte += f"- 📊 **Eficiencia del día:** {eficiencia:.1f}% de capacidad usada\n"
+            
+        except FileNotFoundError:
+            reporte += "- ⚠️ **Primera ejecución del bot - inicializando sistema**\n"
+        except Exception as e:
+            reporte += f"- ❌ **Error leyendo estadísticas:** {str(e)}\n"
         
-        # Iconos por tipo de video
-        iconos = {
-            'urgente': '⚡',
-            'arcangel_miguel': '⚔️', 
-            'jesus': '✝️',
-            'bendiciones': '👑',
-            'oracion': '🙏',
-            'prosperidad': '💎',
-            'mensaje_general': '📺'
-        }
-        icono = iconos.get(tipo, '📺')
+        reporte += """
+
+## 📺 Videos del Ministerio Monitoreados:
+
+"""
         
-        print(f\"- {icono} **{titulo}{'...' if len(titulo) == 50 else ''}**\")
-        print(f\"  - Tipo: {tipo.replace('_', ' ').title()}\")
-        print(f\"  - Comentarios nuevos: {video.get('comentarios_nuevos', 0)}\")
-        print(f\"  - Bendiciones enviadas: {video.get('respuestas_generadas', 0)}\")
-        print(f\"  - Última revisión: {video.get('ultima_revision', 'N/A')[:16]}\")
-        print()
-except Exception as e:
-    print('- ❌ **Error leyendo videos procesados**')
-" >> REPORTE_BENDICIONES.md
-        else
-          echo "- ⚠️ **Primera ejecución - inicializando monitoreo de videos**" >> REPORTE_BENDICIONES.md
-        fi
+        # Leer videos procesados si existen
+        try:
+            with open('videos_prosperidad_procesados.json', 'r') as f:
+                videos = json.load(f)
+            
+            iconos = {
+                'urgente': '⚡',
+                'arcangel_miguel': '⚔️', 
+                'jesus': '✝️',
+                'bendiciones': '👑',
+                'oracion': '🙏',
+                'prosperidad': '💎',
+                'mensaje_general': '📺'
+            }
+            
+            for video in videos.get('videos', []):
+                titulo = video.get('titulo', 'Video')[:50]
+                tipo = video.get('tipo_detectado', 'general')
+                icono = iconos.get(tipo, '📺')
+                
+                reporte += f"- {icono} **{titulo}{'...' if len(titulo) == 50 else ''}**\n"
+                reporte += f"  - Tipo: {tipo.replace('_', ' ').title()}\n"
+                reporte += f"  - Comentarios nuevos: {video.get('comentarios_nuevos', 0)}\n"
+                reporte += f"  - Bendiciones enviadas: {video.get('respuestas_generadas', 0)}\n"
+                reporte += f"  - Última revisión: {video.get('ultima_revision', 'N/A')[:16]}\n\n"
+                
+        except FileNotFoundError:
+            reporte += "- ⚠️ **Primera ejecución - inicializando monitoreo de videos**\n"
+        except Exception as e:
+            reporte += f"- ❌ **Error leyendo videos procesados:** {str(e)}\n"
         
-        echo "" >> REPORTE_BENDICIONES.md
-        echo "---" >> REPORTE_BENDICIONES.md
-        echo "*🔄 Próxima ronda de bendiciones en 4 horas*" >> REPORTE_BENDICIONES.md
-        echo "*💝 Expandiendo el Reino digitalmente, un comentario bendecido a la vez*" >> REPORTE_BENDICIONES.md
-        echo "*👑 Prosperity Divina - Ministerio Digital Automatizado*" >> REPORTE_BENDICIONES.md
+        reporte += """
+---
+*🔄 Próxima ronda de bendiciones en 4 horas*  
+*💝 Expandiendo el Reino digitalmente, un comentario bendecido a la vez*  
+*👑 Prosperidad Divina - Ministerio Digital Automatizado*
+"""
+        
+        # Guardar reporte
+        with open('REPORTE_BENDICIONES.md', 'w', encoding='utf-8') as f:
+            f.write(reporte)
+        
+        print("📊 Reporte de bendiciones generado exitosamente")
+        EOF
+        
+    - name: 📊 Generar reporte de bendiciones
+      env:
+        FECHA_READABLE: ${{ steps.datetime.outputs.fecha_readable }}
+        HORA: ${{ steps.datetime.outputs.hora }}
+      run: |
+        python generar_reporte.py
         
     - name: 💾 Guardar registros de bendiciones
       run: |
         git config --local user.email "prosperidad@divina.ministerio"
         git config --local user.name "Bot Prosperidad Divina"
         
-        # Agregar todos los archivos generados
         git add .
         
-        # Verificar si hay cambios
         if git diff --staged --quiet; then
           echo "ℹ️ No hay nuevas bendiciones para registrar"
         else
           FECHA="${{ steps.datetime.outputs.fecha_readable }}"
           HORA="${{ steps.datetime.outputs.hora }}"
           
-          # Obtener estadísticas para el commit
+          BENDICIONES="0"
           if [ -f "stats_prosperidad_divina.json" ]; then
             BENDICIONES=$(python -c "
 import json
@@ -157,8 +169,6 @@ try:
 except:
     print('0')
 ")
-          else
-            BENDICIONES="0"
           fi
           
           git commit -m "👑 Bendiciones Automáticas - $FECHA $HORA
@@ -173,26 +183,16 @@ except:
           echo "✅ Registro de bendiciones guardado en el repositorio"
         fi
         
-    - name: 🚨 Notificación de problemas espirituales
+    - name: 🚨 Notificación de problemas
       if: failure()
       run: |
         echo "❌ Hubo un problema en el ministerio digital"
         echo "🔍 Revisa los logs para identificar la causa"
-        echo "💡 Posibles causas espirituales:"
-        echo "   - Límite de bendiciones diarias alcanzado (1,496)"
-        echo "   - Problema de conexión con las APIs celestiales"
-        echo "   - Error en credenciales del ministerio"
-        echo "   - Videos no encontrados o sin comentarios"
-        echo "   - Problemas temporales con Gemini o YouTube"
-        echo ""
         echo "🙏 El ministerio continuará en la próxima ejecución"
-        echo "👑 La prosperidad divina no se detiene"
         
-    - name: 🎉 Celebración de éxito ministerial  
+    - name: 🎉 Celebración de éxito
       if: success()
       run: |
         echo "✅ ¡Ronda de bendiciones completada exitosamente!"
         echo "👑 Prosperidad Divina expandiéndose automáticamente"
-        echo "💎 Vidas tocadas por mensajes de abundancia"
-        echo "🔄 Sistema preparado para la próxima bendición"
         echo "⏰ Nos vemos en 4 horas para más ministerio digital"
