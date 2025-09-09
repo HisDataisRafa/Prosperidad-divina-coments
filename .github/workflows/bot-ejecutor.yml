@@ -117,13 +117,7 @@ jobs:
             USUARIOS_MEMORIA="0"
           fi
           
-          git commit -m "🧠 Memoria Actualizada - $FECHA
-
-🔢 Estadísticas:
-  • Comentarios respondidos: $COMENTARIOS_TOTAL
-  • Usuarios con historial: $USUARIOS_MEMORIA
-  
-✨ Bendiciones automáticas completadas"
+          git commit -m "🧠 Memoria Actualizada - $FECHA | 📊 Comentarios: $COMENTARIOS_TOTAL | 👥 Usuarios: $USUARIOS_MEMORIA | ✨ Bendiciones completadas"
           
           # Hacer push
           git push
