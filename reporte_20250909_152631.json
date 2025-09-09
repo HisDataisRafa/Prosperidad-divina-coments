@@ -1,0 +1,32 @@
+{
+  "info_ejecucion": {
+    "id": "20250909_152631",
+    "inicio": "2025-09-09T15:26:47.350139",
+    "modo": "GEMINI_2.5_FLASH_LITE_OPTIMIZADO",
+    "modelo": "gemini-2.5-flash-lite",
+    "max_comentarios": 10,
+    "rpm_configurado": 4.0,
+    "limite_diario_teorico": 1000,
+    "fin": "2025-09-09T15:29:32.268295",
+    "duracion_segundos": 164.92,
+    "duracion_minutos": 2.75
+  },
+  "resumen": {
+    "comentarios_procesados": 10,
+    "respuestas_exitosas": 10,
+    "respuestas_ia_exitosas": 10,
+    "errores_gemini": 0,
+    "errores_youtube": 0,
+    "comentarios_filtrados": 0,
+    "respuestas_bloqueadas_seguridad": 0
+  },
+  "tipos_procesados": {
+    "saludo": 2,
+    "abundancia": 1,
+    "general": 4,
+    "gratitud": 3
+  },
+  "acciones_de_moderacion": {
+    "crisis_ignorada": 0
+  }
+}
