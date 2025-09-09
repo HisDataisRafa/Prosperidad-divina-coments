@@ -601,6 +601,14 @@ BENDICIÓN GENERAL:
         
         # 3. Procesar cada video para bendiciones
         resultados_videos = []
+        # 4. Guardar datos del ministerio
+        self.guardar_resultados_ministerio(resultados_videos)
+        self.guardar_estado_diario()
+        
+        # 5. Generar reportes
+        tiempo_total = datetime.now() - hora_inicio
+        self.generar_reporte_final_ministerio(resultados_videos, tiempo_total)
+        self.generar_reporte_detallado_archivo(resultados_videos)
         
         for video in videos_ministerio:
             resultado = self.procesar_video_para_bendiciones(video)
@@ -708,6 +716,75 @@ def main():
         print(f"\n❌ Error en el ministerio digital: {e}")
         print("🙏 El ministerio continuará en la próxima ejecución")
         raise
+
+def generar_reporte_detallado_archivo(self, resultados: List[Dict]):
+        """📊 Generar reporte detallado en archivo"""
+        
+        total_bendiciones = sum(r['respuestas_generadas'] for r in resultados)
+        total_comentarios = sum(r['comentarios_nuevos'] for r in resultados)
+        total_usado = self.stats['pro_usado'] + self.stats['flash_usado']
+        eficiencia = (total_usado / self.TOTAL_LIMIT) * 100 if total_usado > 0 else 0
+        
+        reporte_detallado = f"""# 👑 Reporte Detallado Prosperidad Divina
+
+## 📊 Resumen del Ministerio Digital
+
+### ✨ Estadísticas de Bendiciones:
+- 💎 **Bendiciones enviadas:** {total_bendiciones}
+- 💬 **Comentarios analizados:** {total_comentarios}  
+- 🙏 **Peticiones de oración:** {self.stats['peticiones_oracion']}
+- 🎉 **Testimonios celebrados:** {self.stats['testimonios_prosperidad']}
+- 💫 **Respuestas de abundancia:** {self.stats['respuestas_abundancia']}
+- 📂 **Backlog procesado:** {self.stats['backlog_procesado']}
+
+### 🤖 Uso de Recursos IA:
+- 👑 **Gemini Pro:** {self.stats['pro_usado']}/46 (calidad premium)
+- ⚡ **Gemini Flash:** {self.stats['flash_usado']}/1450 (respuestas rápidas)
+- 📈 **Total usado:** {total_usado}/1496 ({eficiencia:.1f}%)
+- 💚 **Margen disponible:** {self.TOTAL_LIMIT - total_usado} bendiciones
+
+### 📺 Videos del Ministerio:
+"""
+        
+        for i, resultado in enumerate(resultados, 1):
+            tipo = resultado['tipo_detectado'].replace('_', ' ').title()
+            reporte_detallado += f"""
+**{i}. {resultado['titulo'][:60]}...**
+- Tipo: {tipo}
+- Comentarios nuevos: {resultado['comentarios_nuevos']}
+- Bendiciones enviadas: {resultado['respuestas_generadas']}
+"""
+        
+        reporte_detallado += f"""
+
+### 🎯 Estado del Ministerio:
+"""
+        if eficiencia >= 90:
+            reporte_detallado += "🔥 **MINISTERIO A MÁXIMA CAPACIDAD** - Impacto total\n"
+        elif eficiencia >= 70:
+            reporte_detallado += "💪 **MINISTERIO MUY ACTIVO** - Gran impacto\n"
+        elif eficiencia >= 50:
+            reporte_detallado += "⚡ **MINISTERIO EFICIENTE** - Buen impacto\n"
+        else:
+            reporte_detallado += "📈 **MINISTERIO CRECIENDO** - Construyendo impacto\n"
+        
+        reporte_detallado += f"""
+### ⏰ Información del Sistema:
+- Última ejecución: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+- Próxima ejecución: En 4 horas automáticamente
+- Videos monitoreados: {len(resultados)}
+- Errores: {self.stats['errores']}
+
+---
+*🔄 Sistema automático 24/7 expandiendo el Reino digitalmente*  
+*👑 Prosperidad Divina - Ministerio Digital Automatizado*
+"""
+        
+        # Guardar reporte detallado
+        with open('REPORTE_DETALLADO.md', 'w', encoding='utf-8') as f:
+            f.write(reporte_detallado)
+        
+        print("📊 Reporte detallado guardado en REPORTE_DETALLADO.md")
 
 if __name__ == "__main__":
     main()
