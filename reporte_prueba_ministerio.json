@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-09-09T00:55:30.405097",
+  "fecha_legible": "09 de September 2025 - 00:55",
+  "channel_id": "UCgRg_G9C4-_AHBETHcc7cQQ",
+  "modo": "PRUEBA_5_COMENTARIOS",
+  "stats": {
+    "respuestas_exitosas": 0,
+    "comentarios_procesados": 0,
+    "errores": 0,
+    "peticiones_oracion": 0,
+    "testimonios": 0,
+    "abundancia_respuestas": 0,
+    "saludos": 0,
+    "general": 0
+  },
+  "config": {
+    "horas_buscadas": 12,
+    "max_respuestas": 5,
+    "tipo": "RESPUESTAS_REALES_OAUTH"
+  },
+  "log_detallado": [
+    {
+      "paso": "verificacion_canal",
+      "resultado": "exitoso",
+      "canal": "Prosperidad Divina",
+      "suscriptores": "4200"
+    },
+    {
+      "paso": "obtencion_videos",
+      "resultado": "exitoso",
+      "cantidad": 5,
+      "videos": [
+        "❤️😢 TU MADRE QUE FALLECIÓ HA ESTADO SUPLICANDO DEC",
+        "EL ARCÁNGEL MIGUEL DICE, IGNÓRAME Y LLORARÁS PARA ",
+        "URGENTE HOY: DIOS DICE “TIENES POCAS HORAS… la LLA",
+        "DIOS TE ADVIERTE HOY: Alguien que partió te avisa ",
+        "ARCÁNGEL MIGUEL DICE TU SER QUERIDO TE DEJÓ UNA HE"
+      ]
+    }
+  ]
+}
