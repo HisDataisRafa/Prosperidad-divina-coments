@@ -2,11 +2,8 @@ name: 🙏 Bot Prosperidad Divina - Comentarios Automáticos
 
 on:
   schedule:
-    - cron: '0 */4 * * *'
-  workflow_dispatch:
-
-env:
-  PYTHON_VERSION: '3.9'
+    - cron: '0 */4 * * *'  # Cada 4 horas
+  workflow_dispatch:  # Ejecución manual
 
 jobs:
   bendecir-comentarios:
@@ -21,178 +18,60 @@ jobs:
     - name: 🐍 Configurar Python
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ env.PYTHON_VERSION }}
+        python-version: '3.9'
         
     - name: 📦 Instalar dependencias
       run: |
         pip install google-generativeai google-api-python-client python-dateutil
-        
-    - name: 🕒 Obtener fecha y hora actual
-      id: datetime
-      run: |
-        echo "fecha=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-        echo "hora=$(date +'%H:%M')" >> $GITHUB_OUTPUT
-        echo "fecha_readable=$(date +'%d de %B')" >> $GITHUB_OUTPUT
         
     - name: 👑 Ejecutar Bot Prosperidad Divina
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         python bot_prosperidad_divina_automatico.py
         
-    - name: 📊 Crear script de reporte
+    - name: 📊 Crear reporte básico
       run: |
-        cat > generar_reporte.py << 'EOF'
-        import json
-        import os
-        from datetime import datetime
+        echo "# 👑 Reporte Prosperidad Divina - $(date +'%d de %B %H:%M')" > REPORTE_BENDICIONES.md
+        echo "" >> REPORTE_BENDICIONES.md
+        echo "## ✨ Ministerio Digital Ejecutado:" >> REPORTE_BENDICIONES.md
+        echo "- ⏰ Fecha: $(date +'%Y-%m-%d %H:%M:%S')" >> REPORTE_BENDICIONES.md
+        echo "- 🤖 Bot ejecutado automáticamente" >> REPORTE_BENDICIONES.md
+        echo "- 📊 Estadísticas detalladas en archivos JSON" >> REPORTE_BENDICIONES.md
+        echo "" >> REPORTE_BENDICIONES.md
+        echo "---" >> REPORTE_BENDICIONES.md
+        echo "*🔄 Próxima ejecución automática en 4 horas*" >> REPORTE_BENDICIONES.md
+        echo "*👑 Prosperidad Divina - Ministerio Digital Automático*" >> REPORTE_BENDICIONES.md
         
-        # Obtener fecha del environment
-        fecha = os.environ.get('FECHA_READABLE', 'Hoy')
-        hora = os.environ.get('HORA', '00:00')
-        
-        # Crear reporte base
-        reporte = f"""# 👑 Reporte Prosperidad Divina - {fecha} {hora}
-
-## ✨ Ministerio Digital de Hoy:
-
-"""
-        
-        # Leer estadísticas si existen
-        try:
-            with open('stats_prosperidad_divina.json', 'r') as f:
-                stats = json.load(f)
-            
-            reporte += f"- 🎯 **Comentarios bendecidos:** {stats.get('respuestas_exitosas', 0)}\n"
-            reporte += f"- 👑 **Gemini Pro usado:** {stats.get('pro_usado', 0)}/46 (calidad premium)\n"
-            reporte += f"- ⚡ **Gemini Flash usado:** {stats.get('flash_usado', 0)}/1450 (respuestas rápidas)\n"
-            reporte += f"- 💫 **Total bendiciones:** {stats.get('respuestas_exitosas', 0)}/1496 diarias\n"
-            reporte += f"- 🙏 **Peticiones de oración:** {stats.get('peticiones_oracion', 0)}\n"
-            reporte += f"- 🎉 **Testimonios celebrados:** {stats.get('testimonios_prosperidad', 0)}\n"
-            reporte += f"- 💎 **Respuestas de abundancia:** {stats.get('respuestas_abundancia', 0)}\n"
-            reporte += f"- 📺 **Videos monitoreados:** {stats.get('videos_procesados', 0)}\n"
-            reporte += f"- 📈 **Backlog procesado:** {stats.get('backlog_procesado', 0)}\n"
-            reporte += f"- ⏰ **Última bendición:** {stats.get('ultima_ejecucion', 'N/A')[:16]}\n"
-            
-            # Calcular eficiencia
-            total_usado = stats.get('pro_usado', 0) + stats.get('flash_usado', 0)
-            eficiencia = (total_usado / 1496) * 100 if total_usado > 0 else 0
-            reporte += f"- 📊 **Eficiencia del día:** {eficiencia:.1f}% de capacidad usada\n"
-            
-        except FileNotFoundError:
-            reporte += "- ⚠️ **Primera ejecución del bot - inicializando sistema**\n"
-        except Exception as e:
-            reporte += f"- ❌ **Error leyendo estadísticas:** {str(e)}\n"
-        
-        reporte += """
-
-## 📺 Videos del Ministerio Monitoreados:
-
-"""
-        
-        # Leer videos procesados si existen
-        try:
-            with open('videos_prosperidad_procesados.json', 'r') as f:
-                videos = json.load(f)
-            
-            iconos = {
-                'urgente': '⚡',
-                'arcangel_miguel': '⚔️', 
-                'jesus': '✝️',
-                'bendiciones': '👑',
-                'oracion': '🙏',
-                'prosperidad': '💎',
-                'mensaje_general': '📺'
-            }
-            
-            for video in videos.get('videos', []):
-                titulo = video.get('titulo', 'Video')[:50]
-                tipo = video.get('tipo_detectado', 'general')
-                icono = iconos.get(tipo, '📺')
-                
-                reporte += f"- {icono} **{titulo}{'...' if len(titulo) == 50 else ''}**\n"
-                reporte += f"  - Tipo: {tipo.replace('_', ' ').title()}\n"
-                reporte += f"  - Comentarios nuevos: {video.get('comentarios_nuevos', 0)}\n"
-                reporte += f"  - Bendiciones enviadas: {video.get('respuestas_generadas', 0)}\n"
-                reporte += f"  - Última revisión: {video.get('ultima_revision', 'N/A')[:16]}\n\n"
-                
-        except FileNotFoundError:
-            reporte += "- ⚠️ **Primera ejecución - inicializando monitoreo de videos**\n"
-        except Exception as e:
-            reporte += f"- ❌ **Error leyendo videos procesados:** {str(e)}\n"
-        
-        reporte += """
----
-*🔄 Próxima ronda de bendiciones en 4 horas*  
-*💝 Expandiendo el Reino digitalmente, un comentario bendecido a la vez*  
-*👑 Prosperidad Divina - Ministerio Digital Automatizado*
-"""
-        
-        # Guardar reporte
-        with open('REPORTE_BENDICIONES.md', 'w', encoding='utf-8') as f:
-            f.write(reporte)
-        
-        print("📊 Reporte de bendiciones generado exitosamente")
-        EOF
-        
-    - name: 📊 Generar reporte de bendiciones
-      env:
-        FECHA_READABLE: ${{ steps.datetime.outputs.fecha_readable }}
-        HORA: ${{ steps.datetime.outputs.hora }}
-      run: |
-        python generar_reporte.py
-        
-    - name: 💾 Guardar registros de bendiciones
+    - name: 💾 Guardar resultados
       run: |
         git config --local user.email "prosperidad@divina.ministerio"
         git config --local user.name "Bot Prosperidad Divina"
-        
         git add .
         
-        if git diff --staged --quiet; then
-          echo "ℹ️ No hay nuevas bendiciones para registrar"
-        else
-          FECHA="${{ steps.datetime.outputs.fecha_readable }}"
-          HORA="${{ steps.datetime.outputs.hora }}"
-          
-          BENDICIONES="0"
-          if [ -f "stats_prosperidad_divina.json" ]; then
-            BENDICIONES=$(python -c "
-import json
-try:
-    with open('stats_prosperidad_divina.json', 'r') as f:
-        stats = json.load(f)
-    print(stats.get('respuestas_exitosas', 0))
-except:
-    print('0')
-")
-          fi
-          
-          git commit -m "👑 Bendiciones Automáticas - $FECHA $HORA
+        if ! git diff --staged --quiet; then
+          git commit -m "👑 Bendiciones Automáticas - $(date +'%d/%m/%Y %H:%M')
 
-💎 Bendiciones enviadas: $BENDICIONES
 🙏 Ministerio digital activo
 ⏰ Próxima ejecución en 4 horas
 ✨ Prosperidad divina expandiéndose automáticamente"
-          
           git push
-          
-          echo "✅ Registro de bendiciones guardado en el repositorio"
+          echo "✅ Bendiciones registradas en el repositorio"
+        else
+          echo "ℹ️ No hay nuevas bendiciones para registrar"
         fi
         
-    - name: 🚨 Notificación de problemas
+    - name: 🎉 Confirmación de éxito
+      if: success()
+      run: |
+        echo "✅ ¡Ronda de bendiciones completada!"
+        echo "👑 Prosperidad Divina expandiéndose automáticamente"
+        echo "🔄 Nos vemos en 4 horas para más ministerio"
+        
+    - name: 🚨 Manejo de errores
       if: failure()
       run: |
         echo "❌ Hubo un problema en el ministerio digital"
-        echo "🔍 Revisa los logs para identificar la causa"
         echo "🙏 El ministerio continuará en la próxima ejecución"
-        
-    - name: 🎉 Celebración de éxito
-      if: success()
-      run: |
-        echo "✅ ¡Ronda de bendiciones completada exitosamente!"
-        echo "👑 Prosperidad Divina expandiéndose automáticamente"
-        echo "⏰ Nos vemos en 4 horas para más ministerio digital"
