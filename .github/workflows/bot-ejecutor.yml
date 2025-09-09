@@ -1,32 +1,30 @@
-# Workflow mejorado con persistencia real de memoria de conversaciones
-name: 🙏 Bot Prosperidad Divina - Ejecutor con Memoria Persistente
+# Workflow optimizado para 800 RPD con memoria persistente
+name: 🎯 Bot Prosperidad Divina - 800 RPD Optimizado
 
-# Cuándo ejecutar
+# Configuración para 800 RPD
 on:
-  # Cada hora en punto
+  # Cada 30 minutos para lograr 800 RPD
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0,30 * * * *'  # 48 ejecuciones/día × 17 comentarios = 816 RPD
   
-  # Ejecución manual desde GitHub
+  # Ejecución manual
   workflow_dispatch:
 
-# Permisos necesarios para que el bot pueda hacer commits
+# Permisos necesarios
 permissions:
   contents: write
   actions: read
 
 jobs:
-  bendecir-comentarios:
+  bendecir-comentarios-800rpd:
     runs-on: ubuntu-latest
     
     steps:
-    # Paso 1: Descargar código y archivos de memoria existentes
+    # Paso 1: Descargar repositorio y memoria
     - name: 📥 Descargar repositorio y memoria existente
       uses: actions/checkout@v4
       with:
-        # Importante: obtener todo el historial para poder hacer push
         fetch-depth: 0
-        # Usar token personal para permitir commits
         token: ${{ secrets.GITHUB_TOKEN }}
         
     # Paso 2: Configurar Python
@@ -40,82 +38,121 @@ jobs:
       run: |
         pip install google-generativeai google-auth google-auth-oauthlib google-api-python-client python-dateutil
         
-    # Paso 4: Verificar archivos de memoria existentes
+    # Paso 4: Verificar memoria existente
     - name: 🔍 Verificar estado de archivos de memoria
       run: |
-        echo "📂 Contenido actual del directorio:"
+        echo "📂 ESTADO ACTUAL - CONFIGURACIÓN 800 RPD:"
         ls -la
         echo ""
+        
         if [ -f "comentarios_respondidos.txt" ]; then
-          echo "✅ Archivo de comentarios respondidos encontrado:"
-          echo "   - Líneas: $(wc -l < comentarios_respondidos.txt)"
+          LINEAS=$(wc -l < comentarios_respondidos.txt)
+          echo "✅ Comentarios respondidos: $LINEAS"
+          echo "   - Últimas 3 líneas:"
+          tail -3 comentarios_respondidos.txt | sed 's/^/     /'
         else
-          echo "⚠️  Archivo comentarios_respondidos.txt no existe (se creará)"
+          echo "⚠️  comentarios_respondidos.txt no existe (se creará)"
         fi
         
         if [ -f "memoria_conversaciones.json" ]; then
-          echo "✅ Archivo de memoria de conversaciones encontrado:"
+          USUARIOS=$(grep -c '"autor_id"' memoria_conversaciones.json 2>/dev/null || echo "0")
+          echo "✅ Memoria conversaciones:"
           echo "   - Tamaño: $(du -h memoria_conversaciones.json | cut -f1)"
+          echo "   - Usuarios: $USUARIOS"
         else
-          echo "⚠️  Archivo memoria_conversaciones.json no existe (se creará)"
+          echo "⚠️  memoria_conversaciones.json no existe (se creará)"
         fi
+        
+        echo ""
+        echo "🎯 CONFIGURACIÓN 800 RPD:"
+        echo "   - Ejecución: Cada 30 minutos (48/día)"
+        echo "   - Comentarios por ejecución: 17"
+        echo "   - RPD objetivo: 816"
+        echo "   - Modelo: Gemini 2.5 Flash-Lite (1,000 RPD)"
 
-    # Paso 5: Ejecutar el bot con contexto persistente
-    - name: 👑 Ejecutar Bot con Memoria Persistente
+    # Paso 5: Ejecutar bot 800 RPD
+    - name: 🎯 Ejecutar Bot 800 RPD Optimizado
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
       run: |
-        echo "🚀 Iniciando Bot Prosperidad Divina con contexto persistente..."
+        echo "🚀 INICIANDO BOT 800 RPD..."
+        echo "⏰ Inicio: $(date +'%Y-%m-%d %H:%M:%S UTC')"
+        echo "🎯 Objetivo esta ejecución: 17 comentarios"
+        echo ""
+        
         python bot_prosperidad_divina.py
-        echo "✅ Ejecución del bot completada"
+        
+        echo ""
+        echo "✅ Ejecución 800 RPD completada"
+        echo "⏰ Fin: $(date +'%Y-%m-%d %H:%M:%S UTC')"
 
-    # Paso 6: Verificar qué archivos se crearon o modificaron
-    - name: 🔍 Verificar cambios generados
+    # Paso 6: Verificar resultados 800 RPD
+    - name: 🔍 Verificar resultados 800 RPD
       run: |
-        echo "📊 Estado después de la ejecución:"
+        echo "📊 RESULTADOS DE ESTA EJECUCIÓN 800 RPD:"
         echo ""
         
         if [ -f "comentarios_respondidos.txt" ]; then
+          LINEAS_NUEVAS=$(wc -l < comentarios_respondidos.txt)
           echo "✅ comentarios_respondidos.txt:"
-          echo "   - Líneas: $(wc -l < comentarios_respondidos.txt)"
+          echo "   - Total líneas: $LINEAS_NUEVAS"
+          if [ "$LINEAS_NUEVAS" -gt 0 ]; then
+            echo "   - Últimas 5 respuestas:"
+            tail -5 comentarios_respondidos.txt | sed 's/^/     /'
+          fi
         fi
         
         if [ -f "memoria_conversaciones.json" ]; then
+          USUARIOS=$(grep -c '"autor_id"' memoria_conversaciones.json 2>/dev/null || echo "0")
           echo "✅ memoria_conversaciones.json:"
           echo "   - Tamaño: $(du -h memoria_conversaciones.json | cut -f1)"
-          echo "   - Usuarios en memoria: $(grep -o '"autor_id"' memoria_conversaciones.json | wc -l)"
+          echo "   - Usuarios en memoria: $USUARIOS"
         fi
         
         echo ""
         echo "📋 Reportes generados:"
-        ls -la reporte_*.json 2>/dev/null || echo "   (No se generaron reportes en esta ejecución)"
+        REPORTES_800RPD=$(ls -la reporte_*.json 2>/dev/null | wc -l)
+        if [ "$REPORTES_800RPD" -gt 0 ]; then
+          ls -la reporte_*.json | tail -1
+          echo "   📈 Total reportes: $REPORTES_800RPD"
+          
+          # Extraer estadísticas del último reporte
+          ULTIMO_REPORTE=$(ls -t reporte_*.json 2>/dev/null | head -1)
+          if [ -f "$ULTIMO_REPORTE" ]; then
+            RESPUESTAS=$(grep '"respuestas_exitosas"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
+            PROCESADOS=$(grep '"comentarios_procesados"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
+            echo "   📊 Esta ejecución: $RESPUESTAS respuestas de $PROCESADOS procesados"
+          fi
+        else
+          echo "   (No se generaron reportes en esta ejecución)"
+        fi
         
         echo ""
-        echo "🔄 Cambios en Git:"
+        echo "🔄 Cambios pendientes en Git:"
         git status --porcelain
 
-    # Paso 7: Configurar Git y hacer commit de todos los cambios
-    - name: 💾 Guardar memoria y reportes en el repositorio
+    # Paso 7: Guardar memoria y proyectar 800 RPD
+    - name: 💾 Guardar memoria y calcular proyección 800 RPD
       run: |
         # Configurar Git
         git config --local user.email "action@github.com"
-        git config --local user.name "Bot Prosperidad Divina"
+        git config --local user.name "Bot Prosperidad Divina 800RPD"
         
-        # 🔧 SOLUCIÓN AL PROBLEMA DE GIT: Pull antes de cualquier operación
-        echo "🔄 Sincronizando con repositorio remoto..."
+        # Sincronización con repositorio remoto
+        echo "🔄 Sincronizando repositorio..."
         git pull --rebase origin main || {
-          echo "⚠️  Problema con pull, intentando merge..."
-          git pull --no-rebase origin main || echo "⚠️  Pull falló, continuando..."
+          echo "⚠️  Rebase falló, intentando merge..."
+          git pull --no-rebase origin main || echo "⚠️  Continuando sin pull..."
         }
         
-        # Añadir todos los archivos importantes
+        # Añadir archivos importantes
         git add comentarios_respondidos.txt memoria_conversaciones.json reporte_*.json
         
-        # Verificar si hay cambios para commitear
+        # Verificar cambios
         if ! git diff --staged --quiet; then
-          # Crear commit con información detallada
-          FECHA=$(date +'%d/%m/%Y %H:%M')
+          # Calcular estadísticas para 800 RPD
+          FECHA=$(date +'%d/%m/%Y %H:%M UTC')
           COMENTARIOS_TOTAL=$(wc -l < comentarios_respondidos.txt 2>/dev/null || echo "0")
           
           if [ -f "memoria_conversaciones.json" ]; then
@@ -124,74 +161,137 @@ jobs:
             USUARIOS_MEMORIA="0"
           fi
           
-          git commit -m "🧠 Memoria Actualizada - $FECHA | 📊 Comentarios: $COMENTARIOS_TOTAL | 👥 Usuarios: $USUARIOS_MEMORIA | ✨ Bendiciones completadas"
-          
-          # 🔧 PUSH CON RETRY Y FORCE SI ES NECESARIO
-          echo "📤 Intentando push..."
-          if ! git push origin main; then
-            echo "⚠️  Push normal falló, intentando pull + push..."
-            git pull --rebase origin main || git pull --no-rebase origin main
-            git push origin main || {
-              echo "⚠️  Push con rebase falló, usando force push (CUIDADO)..."
-              git push --force-with-lease origin main
-            }
+          # Extraer estadísticas del último reporte
+          ULTIMO_REPORTE=$(ls -t reporte_*.json 2>/dev/null | head -1)
+          if [ -f "$ULTIMO_REPORTE" ]; then
+            RESPUESTAS_ESTA_EJECUCION=$(grep '"respuestas_exitosas"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
+            GEMINI_EXITOSAS=$(grep '"respuestas_ia_exitosas"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
+            DURACION=$(grep '"duracion_minutos"' "$ULTIMO_REPORTE" | grep -o '[0-9.]*' | tail -1)
+          else
+            RESPUESTAS_ESTA_EJECUCION="0"
+            GEMINI_EXITOSAS="0"
+            DURACION="0"
           fi
           
-          echo "✅ Memoria y reportes guardados exitosamente"
-          echo "📈 Total comentarios en BD: $COMENTARIOS_TOTAL"
-          echo "🧠 Total usuarios con historial: $USUARIOS_MEMORIA"
+          # Proyección diaria para 800 RPD
+          if [ "$RESPUESTAS_ESTA_EJECUCION" -gt 0 ]; then
+            PROYECCION_DIARIA=$((RESPUESTAS_ESTA_EJECUCION * 48))
+            PORCENTAJE_800=$((PROYECCION_DIARIA * 100 / 800))
+          else
+            PROYECCION_DIARIA="0"
+            PORCENTAJE_800="0"
+          fi
+          
+          # Commit con información detallada para 800 RPD
+          git commit -m "🎯 800RPD Update - $FECHA | 📊 Total: $COMENTARIOS_TOTAL | 👥 Users: $USUARIOS_MEMORIA | ✨ Esta exec: $RESPUESTAS_ESTA_EJECUCION | 🤖 Gemini: $GEMINI_EXITOSAS | 📈 Proyección: ${PROYECCION_DIARIA}RPD (${PORCENTAJE_800}%)"
+          
+          # Push con múltiples intentos
+          echo "📤 Guardando cambios..."
+          PUSH_SUCCESS=false
+          
+          if git push origin main; then
+            PUSH_SUCCESS=true
+          elif git pull --rebase origin main && git push origin main; then
+            PUSH_SUCCESS=true
+          elif git pull --no-rebase origin main && git push origin main; then
+            PUSH_SUCCESS=true
+          elif git push --force-with-lease origin main; then
+            PUSH_SUCCESS=true
+            echo "⚠️  Usado force push - revisar manualmente"
+          fi
+          
+          if [ "$PUSH_SUCCESS" = true ]; then
+            echo "✅ Memoria guardada exitosamente"
+            echo ""
+            echo "📊 ESTADÍSTICAS 800 RPD:"
+            echo "   - Total comentarios BD: $COMENTARIOS_TOTAL"
+            echo "   - Usuarios en memoria: $USUARIOS_MEMORIA"
+            echo "   - Esta ejecución: $RESPUESTAS_ESTA_EJECUCION respuestas"
+            echo "   - Gemini exitosas: $GEMINI_EXITOSAS"
+            echo "   - Duración: ${DURACION} minutos"
+            echo "   - Proyección diaria: ${PROYECCION_DIARIA} RPD"
+            echo "   - Progreso hacia 800: ${PORCENTAJE_800}%"
+          else
+            echo "❌ ERROR: Push falló después de múltiples intentos"
+            exit 1
+          fi
           
         else
-          echo "ℹ️  No hubo cambios en esta ejecución (no se encontraron comentarios nuevos para responder)"
+          echo "ℹ️  Sin cambios en esta ejecución"
+          echo "💡 Posibles razones:"
+          echo "   • No había comentarios nuevos disponibles"
+          echo "   • Todos los comentarios recientes ya fueron procesados"
+          echo "   • Comentarios filtrados por criterios de validación"
         fi
 
-    # Paso 8: Limpieza opcional de reportes antiguos (mantener solo últimos 10)
-    - name: 🧹 Limpieza de reportes antiguos
+    # Paso 8: Limpieza inteligente para 800 RPD
+    - name: 🧹 Limpieza optimizada para 800 RPD
       run: |
-        echo "🗂️  Limpiando reportes antiguos (manteniendo últimos 10)..."
+        echo "🗂️  Gestión de reportes (800 RPD genera ~48 reportes/día)..."
         REPORTES_COUNT=$(ls reporte_*.json 2>/dev/null | wc -l)
         
-        if [ "$REPORTES_COUNT" -gt 10 ]; then
+        # Para 800 RPD, mantener reportes de últimos 2 días (96 reportes)
+        if [ "$REPORTES_COUNT" -gt 96 ]; then
           echo "   📊 Reportes actuales: $REPORTES_COUNT"
-          # Eliminar reportes más antiguos, manteniendo solo los 10 más recientes
-          ls -t reporte_*.json | tail -n +11 | xargs rm -f
+          echo "   🧹 Manteniendo últimos 96 reportes (2 días de 800 RPD)"
           
-          # Si se eliminaron reportes, commitear la limpieza
+          # Eliminar reportes más antiguos
+          ls -t reporte_*.json | tail -n +97 | xargs rm -f
+          
+          # Commitear limpieza si hay cambios
           git add . 
           if ! git diff --staged --quiet; then
-            git commit -m "🧹 Limpieza automática: reportes antiguos eliminados"
-            git push origin main || git push --force-with-lease origin main
-            echo "   ✅ Reportes antiguos eliminados y cambios guardados"
+            ELIMINADOS=$((REPORTES_COUNT - 96))
+            git commit -m "🧹 Limpieza 800RPD: $ELIMINADOS reportes antiguos eliminados (mantenidos 96)"
+            
+            if git push origin main || git push --force-with-lease origin main; then
+              echo "   ✅ $ELIMINADOS reportes eliminados y guardado"
+            else
+              echo "   ⚠️  Limpieza OK, push falló (no crítico)"
+            fi
           fi
         else
-          echo "   ✅ Solo $REPORTES_COUNT reportes, no se requiere limpieza"
+          echo "   ✅ $REPORTES_COUNT reportes, no requiere limpieza"
         fi
-        
-    # Paso 9: Mensaje de éxito
-    - name: 🎉 Confirmación final
+
+    # Paso 9: Mensaje de éxito 800 RPD
+    - name: 🎉 Confirmación final 800 RPD
       if: success()
       run: |
         echo ""
-        echo "🌟 ¡CICLO DE BENDICIONES COMPLETADO EXITOSAMENTE! 🌟"
+        echo "🎯 ¡EJECUCIÓN 800 RPD COMPLETADA EXITOSAMENTE! 🎯"
         echo ""
-        echo "📅 Próxima ejecución programada: En 1 hora"
-        echo "🔄 El contexto de usuarios se ha mantenido entre ejecuciones"
-        echo "💫 Las bendiciones continúan fluyendo..."
+        echo "📊 CONFIGURACIÓN ACTIVA:"
+        echo "   🤖 Modelo: Gemini 2.5 Flash-Lite"
+        echo "   ⏰ Frecuencia: Cada 30 minutos (48 ejecuciones/día)"
+        echo "   📝 Comentarios/ejecución: 17"
+        echo "   🎯 Objetivo diario: 800 RPD"
+        echo "   📈 Proyección real: 816 RPD"
+        echo "   🛡️  Margen de seguridad: 184 RPD disponibles"
+        echo ""
+        echo "🔄 PRÓXIMA EJECUCIÓN: En 30 minutos"
+        echo "💾 Memoria persistente mantenida entre ejecuciones"
+        echo "📊 Reportes detallados generados automáticamente"
+        echo "✨ Las bendiciones fluyen de manera optimizada"
         echo ""
         
-    # Paso 10: Manejo de errores
-    - name: 🚨 Manejo de errores
+    # Paso 10: Manejo de errores para 800 RPD
+    - name: 🚨 Manejo de errores 800 RPD
       if: failure()
       run: |
         echo ""
-        echo "❌ HUBO UN PROBLEMA EN ESTA EJECUCIÓN"
+        echo "❌ ERROR EN EJECUCIÓN 800 RPD"
         echo ""
-        echo "🔍 Posibles causas:"
-        echo "   • Error en las APIs (YouTube/Gemini)"
-        echo "   • Problemas de conectividad"
-        echo "   • Límites de cuota excedidos"
-        echo "   • Conflictos de Git (ahora manejados automáticamente)"
+        echo "🔍 Diagnóstico para configuración 800 RPD:"
+        echo "   • Error en APIs (YouTube/Gemini Flash-Lite)"
+        echo "   • Límites de cuota 1,000 RPD excedidos (improbable)"
+        echo "   • Conectividad intermitente"
+        echo "   • Insuficientes comentarios nuevos disponibles"
+        echo "   • Conflictos Git (manejo automático implementado)"
         echo ""
-        echo "🔄 El bot lo intentará automáticamente en la próxima ejecución"
-        echo "💾 La memoria existente se mantiene intacta"
+        echo "🔄 RECUPERACIÓN AUTOMÁTICA:"
+        echo "   • Próximo intento en 30 minutos"
+        echo "   • Memoria existente preservada"
+        echo "   • Configuración 800 RPD mantenida"
+        echo "   • 47 oportunidades más hoy para alcanzar objetivo"
         echo ""
