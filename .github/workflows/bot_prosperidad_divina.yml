@@ -2,8 +2,8 @@ name: 🙏 Bot Prosperidad Divina - Comentarios Automáticos
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Cada 4 horas
-  workflow_dispatch:  # Ejecución manual
+    - cron: '0 */4 * * *'  # ✅ CORREGIDO: Cada 4 horas
+  workflow_dispatch: # Ejecución manual
 
 jobs:
   bendecir-comentarios:
@@ -51,12 +51,9 @@ jobs:
         git config --local user.name "Bot Prosperidad Divina"
         git add .
         
+        # ✅ MENSAJE CORREGIDO - Una sola línea para evitar errores YAML
         if ! git diff --staged --quiet; then
-          git commit -m "👑 Bendiciones Automáticas - $(date +'%d/%m/%Y %H:%M')
-
-🙏 Ministerio digital activo
-⏰ Próxima ejecución en 4 horas
-✨ Prosperidad divina expandiéndose automáticamente"
+          git commit -m "👑 Bendiciones Automáticas $(date +'%d/%m/%Y %H:%M') - Ministerio digital activo ✨"
           git push
           echo "✅ Bendiciones registradas en el repositorio"
         else
