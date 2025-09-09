@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🙏 Bot Prosperidad Divina - VERSIÓN CORDIAL Y POSITIVA
+🙏 Bot Prosperidad Divina - VERSIÓN CORDIAL Y POSITIVA (V3 COMPLETA)
 Fecha: 09 de Septiembre de 2025
 
 MEJORAS PRINCIPALES:
@@ -26,7 +26,228 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 class ProsperidadDivina_800RPD:
-    
+    def __init__(self):
+        self.run_id = datetime.now().strftime('%Y%m%d_%H%M%S')
+        print("="*80)
+        print(f"🎯 BOT PROSPERIDAD DIVINA - VERSIÓN CORDIAL Y POSITIVA (V3)")
+        print(f"🆔 ID de Ejecución: {self.run_id}")
+        print("="*80)
+
+        # --- 1. VERIFICACIÓN DE CREDENCIALES ---
+        self.gemini_api_key = os.environ.get('GEMINI_API_KEY')
+        self.youtube_credentials_comments = os.environ.get('YOUTUBE_CREDENTIALS_COMMENTS')
+        self.youtube_api_key = "AIzaSyBXwOqq2OoC9TpO22OfbUogFaOqIFxF85A" # Se recomienda usar una variable de entorno también
+        
+        print(f"🔑 Diagnóstico de credenciales:")
+        if not self.gemini_api_key: 
+            print(f"   ❌ Gemini API Key: FALTANTE")
+        else: 
+            print(f"   ✅ Gemini API Key: Presente (longitud: {len(self.gemini_api_key)})")
+            
+        if not self.youtube_credentials_comments: 
+            print(f"   ❌ YouTube OAuth: FALTANTE")
+        else: 
+            print(f"   ✅ YouTube OAuth: Presente (longitud: {len(self.youtube_credentials_comments)})")
+        
+        if not all([self.gemini_api_key, self.youtube_credentials_comments]):
+            raise ValueError("❌ ERROR CRÍTICO: Faltan credenciales en las variables de entorno.")
+
+        # --- 2. PARÁMETROS PARA 800 RPD ---
+        self.channel_id = 'UCgRg_G9C4-_AHBETHcc7cQQ'
+        self.max_respuestas_por_ejecucion = 17
+        self.rate_limit_seconds = 15
+
+        # --- 3. INICIALIZACIÓN ---
+        self.model = self.configurar_gemini_flash_lite()
+        self.youtube_lectura = self.configurar_youtube_lectura()
+        self.youtube_escritura = self.configurar_youtube_oauth()
+
+        # --- 4. PERSISTENCIA ---
+        self.db_respondidos_path = "comentarios_respondidos.txt"
+        self.db_conversaciones_path = "memoria_conversaciones.json"
+        self.comentarios_ya_respondidos = self.cargar_db_respondidos()
+        self.memoria_conversacion_usuario = self.cargar_memoria_conversaciones()
+        self.stats = self.inicializar_estadisticas()
+        
+        print(f"\n🎯 CONFIGURACIÓN 800 RPD:")
+        print(f"   🤖 Modelo: Gemini 2.5 Flash-Lite")
+        print(f"   📝 Comentarios por ejecución: {self.max_respuestas_por_ejecucion}")
+        print(f"   ⏱️  Pausa entre requests: {self.rate_limit_seconds}s")
+        print(f"   🔢 RPM: {60/self.rate_limit_seconds:.1f}")
+        print(f"   📅 Ejecuciones/día: 48 (cada 30 min)")
+        print(f"   📈 RPD objetivo: {self.max_respuestas_por_ejecucion * 48}")
+        print(f"   ⏳ Tiempo por ejecución: {(self.max_respuestas_por_ejecucion * self.rate_limit_seconds)/60:.1f} min")
+        print("="*80)
+
+    def configurar_gemini_flash_lite(self) -> genai.GenerativeModel:
+        try:
+            print("\n🤖 CONFIGURANDO GEMINI 2.5 FLASH-LITE...")
+            genai.configure(api_key=self.gemini_api_key)
+            model = genai.GenerativeModel('gemini-2.5-flash-lite')
+            
+            print("   🧪 Realizando prueba de conexión...")
+            print(f"   ⏱️  Aplicando pausa inicial de {self.rate_limit_seconds}s...")
+            time.sleep(self.rate_limit_seconds)
+            
+            test_response = model.generate_content("Responde exactamente: 'Configuración cordial lista'")
+            
+            if "cordial lista" in test_response.text.strip().lower():
+                print("   🎉 ¡ÉXITO! Gemini Flash-Lite configurado.")
+            else:
+                print(f"   ⚠️  ADVERTENCIA: Respuesta inesperada: '{test_response.text.strip()}'")
+            return model
+        except Exception as e:
+            print(f"   ❌ ERROR FATAL: {type(e).__name__} - {str(e)}")
+            raise
+
+    def configurar_youtube_lectura(self):
+        try:
+            print("\n📖 CONFIGURANDO YOUTUBE API (Lectura)...")
+            service = build('youtube', 'v3', developerKey=self.youtube_api_key)
+            print("   ✅ YouTube API configurada correctamente.")
+            return service
+        except Exception as e:
+            print(f"   ❌ Error: {e}")
+            raise e
+
+    def configurar_youtube_oauth(self):
+        try:
+            print("\n📝 CONFIGURANDO YOUTUBE OAUTH (Escritura)...")
+            creds_data = json.loads(self.youtube_credentials_comments)
+            creds = Credentials.from_authorized_user_info(creds_data)
+            service = build('youtube', 'v3', credentials=creds)
+            print("   ✅ YouTube OAuth configurado correctamente.")
+            return service
+        except Exception as e:
+            print(f"   ❌ Error: {e}")
+            raise e
+
+    def cargar_db_respondidos(self) -> Set[str]:
+        if not os.path.exists(self.db_respondidos_path):
+            return set()
+        
+        with open(self.db_respondidos_path, 'r', encoding='utf-8') as f:
+            respondidos = {line.strip() for line in f if line.strip()}
+        print(f"   📊 {len(respondidos)} comentarios ya respondidos.")
+        return respondidos
+
+    def guardar_en_db_respondidos(self, comment_id: str):
+        with open(self.db_respondidos_path, 'a', encoding='utf-8') as f:
+            f.write(f"{comment_id}\n")
+        self.comentarios_ya_respondidos.add(comment_id)
+
+    def cargar_memoria_conversaciones(self) -> Dict[str, Dict]:
+        if not os.path.exists(self.db_conversaciones_path):
+            return {}
+        
+        with open(self.db_conversaciones_path, 'r', encoding='utf-8') as f:
+            memoria = json.load(f)
+        print(f"   🧠 Memoria de {len(memoria)} usuarios cargada.")
+        return memoria
+
+    def guardar_memoria_conversaciones(self):
+        with open(self.db_conversaciones_path, 'w', encoding='utf-8') as f:
+            json.dump(self.memoria_conversacion_usuario, f, indent=2, ensure_ascii=False)
+
+    def actualizar_memoria_usuario(self, autor_id: str, autor_nombre: str, nuevo_mensaje: str):
+        if autor_id not in self.memoria_conversacion_usuario:
+            self.memoria_conversacion_usuario[autor_id] = {
+                "nombre": autor_nombre,
+                "mensajes": []
+            }
+        
+        self.memoria_conversacion_usuario[autor_id]["mensajes"].append({
+            "texto": nuevo_mensaje,
+            "fecha": datetime.now().isoformat()
+        })
+        
+        self.memoria_conversacion_usuario[autor_id]["mensajes"] = \
+            self.memoria_conversacion_usuario[autor_id]["mensajes"][-3:]
+
+    def obtener_contexto_usuario(self, autor_id: str) -> List[str]:
+        if autor_id not in self.memoria_conversacion_usuario:
+            return []
+        return [msg["texto"] for msg in self.memoria_conversacion_usuario[autor_id]["mensajes"]]
+
+    def obtener_videos_recientes(self) -> List[Dict]:
+        try:
+            print("\n📹 OBTENIENDO VIDEOS RECIENTES...")
+            
+            channel_response = self.youtube_lectura.channels().list(
+                part='contentDetails',
+                id=self.channel_id
+            ).execute()
+            
+            if not channel_response.get('items'):
+                print("   ❌ Canal no encontrado.")
+                return []
+            
+            uploads_id = channel_response['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+            
+            playlist_items = self.youtube_lectura.playlistItems().list(
+                part='snippet',
+                playlistId=uploads_id,
+                maxResults=5
+            ).execute()
+            
+            videos = [{'id': item['snippet']['resourceId']['videoId'],
+                       'titulo': item['snippet']['title'],
+                       'fecha': item['snippet']['publishedAt']}
+                      for item in playlist_items.get('items', [])]
+            
+            print(f"   ✅ {len(videos)} videos encontrados.")
+            return videos
+            
+        except Exception as e:
+            print(f"   ❌ Error obteniendo videos: {e}")
+            return []
+
+    def obtener_comentarios_de_video(self, video_id: str, video_titulo: str) -> List[Dict]:
+        comentarios_nuevos = []
+        try:
+            print(f"   🔍 {video_titulo[:30]}...")
+            
+            response = self.youtube_lectura.commentThreads().list(
+                part='snippet',
+                videoId=video_id,
+                order='time',
+                maxResults=50
+            ).execute()
+            
+            for item in response.get('items', []):
+                comment_id = item['snippet']['topLevelComment']['id']
+                
+                if comment_id in self.comentarios_ya_respondidos or item['snippet']['totalReplyCount'] > 0:
+                    continue
+                
+                snippet = item['snippet']['topLevelComment']['snippet']
+                autor_id = snippet.get('authorChannelId', {}).get('value', f"fallback_{snippet['authorDisplayName']}")
+                
+                comentarios_nuevos.append({
+                    'id': comment_id,
+                    'texto': snippet['textDisplay'],
+                    'autor_nombre': snippet['authorDisplayName'],
+                    'autor_id': autor_id,
+                    'video_titulo': video_titulo,
+                    'fecha': datetime.fromisoformat(snippet['publishedAt'].replace('Z', '+00:00'))
+                })
+            
+            print(f"      📊 {len(comentarios_nuevos)} comentarios nuevos.")
+            return comentarios_nuevos
+            
+        except Exception as e:
+            print(f"      ❌ Error: {e}")
+            return []
+            
+    def es_comentario_valido(self, texto: str) -> bool:
+        if not texto or len(texto.strip()) <= 3 or len(texto.strip()) > 500:
+            return False
+        if re.search(r'http[s]?://', texto, re.IGNORECASE):
+            return False
+        return True
+
+    # --- INICIO DE LÓGICA V3 MEJORADA ---
+
     def detectar_tipo_comentario_mejorado(self, texto: str, titulo_video: str = "") -> Dict:
         """
         Detecta el tipo y tono del comentario con análisis mejorado.
@@ -42,23 +263,20 @@ class ProsperidadDivina_800RPD:
             'menciona_figura_religiosa': False,
             'es_pregunta': '?' in texto,
             'es_respuesta_a_titulo': False,
-            'requiere_respuesta_suave': False,  # Nueva bandera para respuestas más suaves
+            'requiere_respuesta_suave': False,
             'elementos_detectados': []
         }
         
-        # Detectar si es una respuesta directa al título
-        palabras_titulo = set(titulo_lower.split())
-        palabras_comentario = set(texto_lower.split())
+        palabras_titulo = set(re.findall(r'\w+', titulo_lower))
+        palabras_comentario = set(re.findall(r'\w+', texto_lower))
         coincidencias = palabras_titulo & palabras_comentario
         
-        # Si hay negación + elementos del título, requiere respuesta suave
         negaciones = ['no', 'nunca', 'jamás', 'ni', 'tampoco', 'nada']
         if any(neg in texto_lower for neg in negaciones) and len(coincidencias) > 1:
             resultado['es_respuesta_a_titulo'] = True
             resultado['requiere_respuesta_suave'] = True
-            resultado['tono'] = 'esceptico_suave'  # Cambio de tono para manejo especial
+            resultado['tono'] = 'esceptico_suave'
         
-        # Detectar sarcasmo/escepticismo (pero marcar como suave para respuesta cordial)
         patrones_sarcasmo = [
             r'\bja+\b', r'\bjeje\b', r'\blol\b', r'\bxd\b',
             r'no creo', r'mentira', r'falso', r'estafa',
@@ -68,45 +286,32 @@ class ProsperidadDivina_800RPD:
             resultado['tono'] = 'esceptico_suave'
             resultado['requiere_respuesta_suave'] = True
         
-        # Crisis - máxima prioridad
         palabras_crisis = ['no aguanto', 'suicidio', 'morir', 'matarme', 'acabar con todo']
         if any(word in texto_lower for word in palabras_crisis):
             resultado['tipo'] = 'crisis'
             resultado['tono'] = 'crisis'
             return resultado
         
-        # Detectar menciones de figuras religiosas
         figuras_religiosas = [
-            'dios', 'jesús', 'cristo', 'virgen', 'maría', 
-            'arcángel', 'miguel', 'gabriel', 'rafael',
-            'ángel', 'espíritu santo', 'señor'
+            'dios', 'jesús', 'cristo', 'virgen', 'maría', 'arcángel', 
+            'miguel', 'gabriel', 'rafael', 'ángel', 'espíritu santo', 'señor'
         ]
         for figura in figuras_religiosas:
             if figura in texto_lower:
                 resultado['menciona_figura_religiosa'] = True
                 resultado['elementos_detectados'].append(figura)
         
-        # Clasificación por tipo
         if len(texto.split()) <= 5:
-            if resultado['requiere_respuesta_suave']:
-                resultado['tipo'] = 'comentario_breve'
-            else:
-                resultado['tipo'] = 'saludo'
+            resultado['tipo'] = 'comentario_breve' if resultado['requiere_respuesta_suave'] else 'saludo'
         
-        # Abundancia/dinero
-        palabras_abundancia = ['dinero', 'trabajo', 'abundancia', 'prosperidad', 'riqueza', 'empleo', 'negocio']
-        if any(word in texto_lower for word in palabras_abundancia):
+        if any(word in texto_lower for word in ['dinero', 'trabajo', 'abundancia', 'prosperidad', 'riqueza']):
             resultado['tipo'] = 'abundancia'
         
-        # Dolor emocional
-        palabras_dolor = ['dolor', 'triste', 'depresión', 'ansiedad', 'solo', 'sufr', 'llorar', 'extrañ']
-        if any(word in texto_lower for word in palabras_dolor):
+        if any(word in texto_lower for word in ['dolor', 'triste', 'depresión', 'ansiedad', 'solo', 'sufr']):
             resultado['tipo'] = 'dolor_confusion'
             resultado['tono'] = 'vulnerable'
         
-        # Gratitud
-        palabras_gratitud = ['gracias', 'bendiciones', 'amén', 'sí acepto', 'recibo', 'agradezco']
-        if any(word in texto_lower for word in palabras_gratitud):
+        if any(word in texto_lower for word in ['gracias', 'bendiciones', 'amén', 'sí acepto', 'recibo']):
             resultado['tipo'] = 'gratitud'
             resultado['tono'] = 'positivo'
         
@@ -120,19 +325,17 @@ class ProsperidadDivina_800RPD:
         
         if analisis['tipo'] == 'crisis':
             print("      ⚠️  CRISIS - Comentario omitido.")
+            self.stats['acciones_de_moderacion']['crisis_ignorada'] += 1
             return None
         
         try:
-            # Construir contexto previo si existe
             contexto_str = ""
             if contexto_previo:
                 contexto_str = ("Conversación previa:\n" + 
                                "\n".join(f"- {msg}" for msg in contexto_previo[-2:]) + "\n\n")
             
-            # Instrucciones específicas según el análisis
             instrucciones_especificas = self._generar_instrucciones_cordiales(analisis)
             
-            # Prompt mejorado enfocado en cordialidad
             prompt = f"""Eres un asistente espiritual muy cordial y amoroso del canal "Prosperidad Divina".
 Tu misión es bendecir y llenar de amor a todos, sin importar su actitud.
 
@@ -141,12 +344,12 @@ Tu misión es bendecir y llenar de amor a todos, sin importar su actitud.
 - Comentario actual: "{comentario_actual}"
 
 INSTRUCCIONES FUNDAMENTALES:
-1. Sé SIEMPRE cordial, cálido y genuinamente amoroso
-2. Ofrece bendiciones sinceras y positivas a TODOS
-3. NO uses frases como "respeto tu perspectiva" o "respeto tu opinión" (suenan distantes)
-4. En su lugar, usa bendiciones directas como "Dios te bendiga", "Bendiciones para ti", "Que tengas un hermoso día"
-5. NO menciones el título del video a menos que el usuario lo haga
-6. Mantén un tono de amor incondicional
+1. Sé SIEMPRE cordial, cálido y genuinamente amoroso.
+2. Ofrece bendiciones sinceras y positivas a TODOS.
+3. NO uses frases como "respeto tu perspectiva" o "respeto tu opinión" (suenan distantes).
+4. En su lugar, usa bendiciones directas como "Dios te bendiga", "Bendiciones para ti", "Que tengas un hermoso día".
+5. NO menciones el título del video a menos que el usuario lo haga.
+6. Mantén un tono de amor incondicional.
 
 {instrucciones_especificas}
 
@@ -155,17 +358,15 @@ EJEMPLOS DE RESPUESTAS CORDIALES:
 - "Que tengas un día maravilloso lleno de bendiciones 💫"
 - "Bendiciones infinitas para ti y tu familia 🌟🙏"
 - "Que la paz y el amor llenen tu corazón 💖✨"
-- "Muchas bendiciones en tu camino 🙏💫"
 
 FORMATO:
-- Máximo 2 líneas cortas
-- Usa 1-2 emojis positivos (🙏✨💫🌟💖🕊️)
-- Sé cálido y genuino
-- Transmite amor sincero
+- Máximo 2 líneas cortas.
+- Usa 1-2 emojis positivos (🙏✨💫🌟💖🕊️).
+- Sé cálido y genuino. Transmite amor sincero.
 
 Respuesta (cordial y amorosa):"""
 
-            print(f"      🧠 Generando respuesta cordial...")
+            print(f"      🧠 Generando respuesta cordial... (pausa {self.rate_limit_seconds}s)")
             time.sleep(self.rate_limit_seconds)
             
             safety_settings = [
@@ -177,165 +378,117 @@ Respuesta (cordial y amorosa):"""
             
             response = self.model.generate_content(
                 prompt,
-                generation_config=genai.types.GenerationConfig(
-                    temperature=0.7,  # Un poco más alta para variedad en bendiciones
-                    max_output_tokens=100,
-                    top_p=0.9
-                ),
+                generation_config=genai.types.GenerationConfig(temperature=0.7, max_output_tokens=100, top_p=0.9),
                 safety_settings=safety_settings
             )
             
             if not response or not response.text:
-                raise ValueError("Respuesta vacía")
+                raise ValueError("Respuesta vacía de la IA")
             
-            respuesta = response.text.strip()
-            
-            # Validación: asegurar que la respuesta sea cordial
-            respuesta_validada = self._validar_cordialidad(respuesta, analisis, comentario_actual)
+            respuesta_validada = self._validar_cordialidad(response.text.strip(), analisis)
             
             print(f"      ✅ Respuesta: \"{respuesta_validada[:50]}...\"")
+            self.stats['resumen']['respuestas_ia_exitosas'] += 1
             return respuesta_validada
             
         except Exception as e:
-            print(f"      ❌ Error: {type(e).__name__}")
+            print(f"      ❌ Error IA: {type(e).__name__} - {e}")
+            self.stats['resumen']['errores_gemini'] += 1
             return self._generar_fallback_cordial(analisis)
     
     def _generar_instrucciones_cordiales(self, analisis: Dict) -> str:
-        """Genera instrucciones específicas manteniendo siempre la cordialidad."""
-        
         instrucciones = []
         
         if analisis.get('requiere_respuesta_suave') or analisis['tono'] == 'esceptico_suave':
-            instrucciones.append("""
-RESPUESTA ESPECIALMENTE AMOROSA:
-- Este usuario puede estar escéptico o confundido
-- Dale una bendición extra cálida y sincera
-- NO confrontes ni argumentes
-- Simplemente bendícelo con amor genuino
-- Ejemplos: "Dios te bendiga grandemente 🙏✨", "Que tengas un día hermoso lleno de paz 💫"
-""")
+            instrucciones.append("RESPUESTA ESPECIALMENTE AMOROSA:\n- Este usuario puede estar escéptico. Dale una bendición extra cálida y sincera. NO confrontes. Simplemente bendícelo con amor genuino.\n- Ejemplos: \"Dios te bendiga grandemente 🙏✨\", \"Que tengas un día hermoso lleno de paz 💫\"")
         
         elif analisis['tono'] == 'vulnerable':
-            instrucciones.append("""
-USUARIO NECESITA CONSUELO:
-- Muestra compasión profunda
-- Ofrece esperanza y fortaleza
-- Bendiciones reconfortantes
-- Ejemplos: "Dios te abraza en este momento 💖🙏", "Enviándote mucha fuerza y amor 💫"
-""")
-        
-        if analisis['es_respuesta_a_titulo']:
-            instrucciones.append("""
-NO MENCIONES EL TÍTULO:
-- Responde con una bendición general
-- No hagas referencia al contenido del video
-- Solo bendice al usuario con amor
-""")
+            instrucciones.append("USUARIO NECESITA CONSUELO:\n- Muestra compasión profunda y ofrece esperanza. Bendiciones reconfortantes.\n- Ejemplos: \"Dios te abraza en este momento 💖🙏\", \"Enviándote mucha fuerza y amor 💫\"")
         
         if analisis['menciona_figura_religiosa']:
             figuras = ', '.join(analisis['elementos_detectados'])
-            instrucciones.append(f"""
-FIGURAS ESPIRITUALES MENCIONADAS: {figuras}
-- Puedes incluir estas figuras en tu bendición
-- Mantén el tono amoroso y cordial
-""")
-        
+            instrucciones.append(f"FIGURAS MENCIONADAS: {figuras}\n- Puedes incluir estas figuras en tu bendición, manteniendo el tono amoroso.")
+
         if analisis['tipo'] == 'gratitud':
-            instrucciones.append("""
-USUARIO AGRADECIDO:
-- Multiplica sus bendiciones
-- Agradece su hermoso corazón
-- Sé especialmente cálido
-""")
-        
+            instrucciones.append("USUARIO AGRADECIDO:\n- Multiplica sus bendiciones y agradece su hermoso corazón.")
+
         return '\n'.join(instrucciones)
     
-    def _validar_cordialidad(self, respuesta: str, analisis: Dict, comentario: str) -> str:
-        """Valida que la respuesta sea cordial y ajusta si es necesario."""
+    def _validar_cordialidad(self, respuesta: str, analisis: Dict) -> str:
+        frases_evitar = ['respeto tu perspectiva', 'respeto tu opinión', 'entiendo tu punto']
         
-        respuesta_lower = respuesta.lower()
-        
-        # Frases no cordiales a evitar
-        frases_evitar = [
-            'respeto tu perspectiva',
-            'respeto tu opinión',
-            'entiendo tu punto',
-            'comprendo tu posición',
-            'cada quien',
-            'está bien si'
-        ]
-        
-        # Si contiene frases no cordiales, reemplazar con bendición directa
         for frase in frases_evitar:
-            if frase in respuesta_lower:
+            if frase in respuesta.lower():
                 return self._generar_fallback_cordial(analisis)
         
-        # Si es muy corta o parece seca, enriquecer
         if len(respuesta) < 20:
             return self._generar_fallback_cordial(analisis)
         
         return respuesta
     
     def _generar_fallback_cordial(self, analisis: Dict) -> str:
-        """Genera fallbacks siempre cordiales y positivos."""
-        
-        # Bendiciones cordiales universales
         bendiciones_universales = [
             "Dios te bendiga abundantemente 🙏✨",
             "Que tengas un día maravilloso lleno de bendiciones 💫",
             "Bendiciones infinitas para ti y tu familia 🌟🙏",
             "Que la paz y el amor llenen tu corazón 💖✨",
-            "Muchas bendiciones en tu camino 🙏💫",
-            "Dios te llene de amor y prosperidad 🌟💖",
-            "Que todas las bendiciones lleguen a tu vida 🙏✨",
-            "Un abrazo de luz para ti 💫🤗",
-            "Bendiciones y mucha paz para tu corazón 🕊️💖",
             "Que Dios ilumine siempre tu camino 🌟🙏"
         ]
         
-        # Fallbacks específicos por tipo (todos cordiales)
         fallbacks_especificos = {
-            'comentario_breve': [
-                "Dios te bendiga grandemente 🙏✨",
-                "Muchas bendiciones para ti 💫🙏",
-                "Que tengas un hermoso día 🌟💖"
-            ],
-            'saludo': [
-                "¡Bendiciones para ti también! 🙏✨",
-                "Que Dios te bendiga siempre 💫🌟",
-                "¡Hola! Muchas bendiciones 🙏💖"
-            ],
-            'abundancia': [
-                "Que la prosperidad fluya abundantemente en tu vida 💫🙏",
-                "Dios multiplique tus bendiciones y abundancia 🌟✨",
-                "Que se abran todas las puertas de prosperidad para ti 🙏💖"
-            ],
-            'dolor_confusion': [
-                "Dios te abraza con su amor infinito 💖🙏",
-                "Enviándote mucha fuerza y paz 🕊️✨",
-                "Que encuentres consuelo en el amor divino 🌟💫"
-            ],
-            'gratitud': [
-                "¡Que tus bendiciones se multipliquen! 🌟🙏",
-                "Gracias a ti por tu hermoso corazón ✨💖",
-                "Dios te bendiga por tu gratitud 🙏💫"
-            ]
+            'comentario_breve': ["Dios te bendiga grandemente 🙏✨", "Muchas bendiciones para ti 💫🙏"],
+            'saludo': ["¡Bendiciones para ti también! 🙏✨", "¡Hola! Muchas bendiciones 🙏💖"],
+            'abundancia': ["Que la prosperidad fluya abundantemente en tu vida 💫🙏", "Dios multiplique tus bendiciones 🌟✨"],
+            'dolor_confusion': ["Dios te abraza con su amor infinito 💖🙏", "Enviándote mucha fuerza y paz 🕊️✨"],
+            'gratitud': ["¡Que tus bendiciones se multipliquen! 🌟🙏", "Gracias a ti por tu hermoso corazón ✨💖"]
         }
         
-        tipo = analisis.get('tipo', 'general')
-        
-        # Si requiere respuesta suave o es escéptico, usar bendiciones universales
-        if analisis.get('requiere_respuesta_suave') or analisis['tono'] in ['esceptico_suave', 'esceptico']:
+        if analisis.get('requiere_respuesta_suave'):
             return random.choice(bendiciones_universales)
         
-        # Si hay fallbacks específicos, mezclar con universales
-        if tipo in fallbacks_especificos:
-            todas_opciones = fallbacks_especificos[tipo] + bendiciones_universales[:3]
-            return random.choice(todas_opciones)
-        
-        # Por defecto, bendición universal
-        return random.choice(bendiciones_universales)
-    
+        tipo = analisis.get('tipo', 'general')
+        opciones = fallbacks_especificos.get(tipo, []) + bendiciones_universales
+        return random.choice(opciones)
+
+    # --- FIN DE LÓGICA V3 MEJORADA ---
+
+    def responder_comentario_800rpd(self, comentario_id: str, respuesta: str, autor_nombre: str) -> bool:
+        try:
+            print(f"      📤 Enviando respuesta...")
+            
+            self.youtube_escritura.comments().insert(
+                part='snippet',
+                body={'snippet': {'parentId': comentario_id, 'textOriginal': respuesta}}
+            ).execute()
+            
+            print(f"      ✅ Enviada a '{autor_nombre}'.")
+            self.guardar_en_db_respondidos(comentario_id)
+            return True
+            
+        except HttpError as e:
+            error_msg = e.content.decode('utf-8') if e.content else str(e)
+            print(f"      ❌ Error HTTP: {error_msg}")
+            self.stats['resumen']['errores_youtube'] += 1
+            return False
+        except Exception as e:
+            print(f"      ❌ Error: {e}")
+            self.stats['resumen']['errores_youtube'] += 1
+            return False
+
+    def inicializar_estadisticas(self):
+        return {
+            'info_ejecucion': {
+                'id': self.run_id, 'inicio': datetime.now().isoformat(), 'modo': 'CORDIAL_Y_POSITIVO_V3',
+                'modelo': 'gemini-2.5-flash-lite', 'max_comentarios': self.max_respuestas_por_ejecucion,
+            },
+            'resumen': {
+                'comentarios_procesados': 0, 'respuestas_exitosas': 0, 'respuestas_ia_exitosas': 0,
+                'errores_gemini': 0, 'errores_youtube': 0, 'comentarios_filtrados': 0
+            },
+            'tipos_procesados': {},
+            'acciones_de_moderacion': {'crisis_ignorada': 0}
+        }
+
     def ejecutar_800rpd(self):
         """Ejecución principal con respuestas cordiales."""
         print(f"\n🚀 INICIANDO EJECUCIÓN - MODO CORDIAL Y POSITIVO...")
@@ -348,74 +501,95 @@ USUARIO AGRADECIDO:
             print("❌ No hay videos disponibles.")
             return
         
-        print(f"\n🎯 PROCESANDO {self.max_respuestas_por_ejecucion} COMENTARIOS:")
+        print(f"\n🎯 PROCESANDO HASTA {self.max_respuestas_por_ejecucion} COMENTARIOS:")
         print("-" * 60)
         
-        for video_idx, video in enumerate(videos, 1):
+        comentarios_a_procesar = []
+        for video in videos:
+            comentarios_a_procesar.extend(self.obtener_comentarios_de_video(video['id'], video['titulo']))
+        
+        # Ordenar todos los comentarios por fecha para responder a los más nuevos primero
+        comentarios_a_procesar.sort(key=lambda x: x['fecha'], reverse=True)
+
+        for comentario in comentarios_a_procesar:
             if respuestas_enviadas >= self.max_respuestas_por_ejecucion:
                 break
-                
-            print(f"\n📹 VIDEO {video_idx}/{len(videos)}: {video['titulo'][:50]}...")
-            comentarios = self.obtener_comentarios_de_video(video['id'], video['titulo'])
             
-            if not comentarios:
+            self.stats['resumen']['comentarios_procesados'] += 1
+            
+            if not self.es_comentario_valido(comentario['texto']):
+                self.stats['resumen']['comentarios_filtrados'] += 1
                 continue
             
-            comentarios.sort(key=lambda x: x['fecha'], reverse=True)
+            print(f"\n   💬 COMENTARIO #{respuestas_enviadas + 1}")
+            print(f"      👤 {comentario['autor_nombre']}")
+            print(f"      📝 \"{comentario['texto']}\"")
             
-            for comentario in comentarios:
-                if respuestas_enviadas >= self.max_respuestas_por_ejecucion:
-                    break
+            analisis = self.detectar_tipo_comentario_mejorado(comentario['texto'], comentario['video_titulo'])
+            
+            print(f"      🏷️  Tipo: {analisis['tipo']} | Tono: {analisis['tono']}")
+            if analisis.get('requiere_respuesta_suave'):
+                print(f"      💖 Aplicando respuesta extra cordial")
+            
+            contexto_previo = self.obtener_contexto_usuario(comentario['autor_id'])
+            
+            respuesta = self.generar_respuesta_contextual_mejorada(
+                comentario['texto'], contexto_previo, analisis, comentario
+            )
+            
+            if respuesta is None:
+                continue
+            
+            if self.responder_comentario_800rpd(comentario['id'], respuesta, comentario['autor_nombre']):
+                respuestas_enviadas += 1
+                self.stats['resumen']['respuestas_exitosas'] += 1
+                self.stats['tipos_procesados'][analisis['tipo']] = self.stats['tipos_procesados'].get(analisis['tipo'], 0) + 1
                 
-                self.stats['resumen']['comentarios_procesados'] += 1
-                
-                if not self.es_comentario_valido(comentario['texto']):
-                    self.stats['resumen']['comentarios_filtrados'] += 1
-                    continue
-                
-                print(f"\n   💬 COMENTARIO #{respuestas_enviadas + 1}")
-                print(f"      👤 {comentario['autor_nombre']}")
-                print(f"      📝 \"{comentario['texto']}\"")
-                
-                # Análisis mejorado del comentario
-                analisis = self.detectar_tipo_comentario_mejorado(
-                    comentario['texto'], 
-                    comentario['video_titulo']
+                self.actualizar_memoria_usuario(
+                    comentario['autor_id'], comentario['autor_nombre'], comentario['texto']
                 )
                 
-                print(f"      🏷️  Tipo: {analisis['tipo']} | Tono: {analisis['tono']}")
-                if analisis.get('requiere_respuesta_suave'):
-                    print(f"      💖 Aplicando respuesta extra cordial")
-                
-                # Obtener contexto previo
-                contexto_previo = self.obtener_contexto_usuario(comentario['autor_id'])
-                
-                # Generar respuesta cordial
-                respuesta = self.generar_respuesta_contextual_mejorada(
-                    comentario['texto'],
-                    contexto_previo,
-                    analisis,
-                    comentario
-                )
-                
-                if respuesta is None:
-                    continue
-                
-                # Enviar respuesta
-                if self.responder_comentario_800rpd(comentario['id'], respuesta, comentario['autor_nombre']):
-                    respuestas_enviadas += 1
-                    self.stats['resumen']['respuestas_exitosas'] += 1
-                    self.stats['tipos_procesados'][analisis['tipo']] = \
-                        self.stats['tipos_procesados'].get(analisis['tipo'], 0) + 1
-                    
-                    self.actualizar_memoria_usuario(
-                        comentario['autor_id'],
-                        comentario['autor_nombre'],
-                        comentario['texto']
-                    )
-                    
-                    print(f"      🎉 Progreso: {respuestas_enviadas}/{self.max_respuestas_por_ejecucion}")
+                print(f"      🎉 Progreso: {respuestas_enviadas}/{self.max_respuestas_por_ejecucion}")
         
         self.guardar_memoria_conversaciones()
         duracion_total = (datetime.now() - inicio).total_seconds()
         self.generar_reporte_800rpd(duracion_total)
+
+    def generar_reporte_800rpd(self, duracion_segundos: float):
+        stats = self.stats
+        stats['info_ejecucion']['fin'] = datetime.now().isoformat()
+        stats['info_ejecucion']['duracion_minutos'] = round(duracion_segundos / 60, 2)
+        
+        nombre_reporte = f"reporte_{self.run_id}.json"
+        with open(nombre_reporte, 'w', encoding='utf-8') as f:
+            json.dump(stats, f, indent=2, ensure_ascii=False)
+        
+        print("\n" + "="*80)
+        print("📊 REPORTE MODO CORDIAL (V3) - EJECUCIÓN COMPLETADA")
+        print("="*80)
+        
+        print(f"   - Duración: {stats['info_ejecucion']['duracion_minutos']} min")
+        print(f"   - Enviados: {stats['resumen']['respuestas_exitosas']} / Procesados: {stats['resumen']['comentarios_procesados']}")
+        print(f"   - IA: {stats['resumen']['respuestas_ia_exitosas']} | Fallbacks: {stats['resumen']['respuestas_exitosas'] - stats['resumen']['respuestas_ia_exitosas']}")
+        print(f"   - Errores (IA/YouTube): {stats['resumen']['errores_gemini']} / {stats['resumen']['errores_youtube']}")
+        
+        if stats['resumen']['respuestas_exitosas'] >= 15:
+            print("   - DIAGNÓSTICO: 🎉 EXCELENTE! Configuración funcionando perfectamente.")
+        elif stats['resumen']['respuestas_exitosas'] > 0:
+            print("   - DIAGNÓSTICO: ✅ BUENO. Se enviaron respuestas, revisar disponibilidad de comentarios si no se alcanzó el objetivo.")
+        else:
+            print("   - DIAGNÓSTICO: ❌ REVISAR. No se procesaron comentarios. Revisar filtros o errores.")
+
+        print(f"\n📄 Reporte guardado: {nombre_reporte}")
+        print("="*80)
+
+if __name__ == "__main__":
+    try:
+        bot = ProsperidadDivina_800RPD()
+        bot.ejecutar_800rpd()
+        print("\n🎯 EJECUCIÓN CORDIAL (V3) COMPLETADA")
+    except KeyboardInterrupt:
+        print("\n⏹️  Ejecución interrumpida por el usuario.")
+    except Exception as e:
+        print(f"\n❌ ERROR CRÍTICO EN LA EJECUCIÓN PRINCIPAL: {e}")
+        print(traceback.format_exc())
