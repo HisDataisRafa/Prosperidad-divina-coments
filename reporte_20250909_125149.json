@@ -1,0 +1,27 @@
+{
+  "info_ejecucion": {
+    "id": "20250909_125149",
+    "inicio": "2025-09-09T12:52:06.626827",
+    "modo": "ULTRA_CONSERVADORA_4RPM",
+    "max_comentarios": 10,
+    "rpm_configurado": 4.0,
+    "fin": "2025-09-09T12:54:56.485016",
+    "duracion_segundos": 169.86,
+    "duracion_minutos": 2.83
+  },
+  "resumen": {
+    "comentarios_procesados": 10,
+    "respuestas_exitosas": 10,
+    "respuestas_ia_exitosas": 0,
+    "errores_gemini": 10,
+    "errores_youtube": 0,
+    "comentarios_filtrados": 0
+  },
+  "tipos_procesados": {
+    "saludo": 6,
+    "general": 4
+  },
+  "acciones_de_moderacion": {
+    "crisis_ignorada": 0
+  }
+}
