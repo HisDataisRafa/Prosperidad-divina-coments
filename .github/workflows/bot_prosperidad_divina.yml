@@ -22,7 +22,15 @@ jobs:
         
     - name: 📦 Instalar dependencias
       run: |
-        pip install google-generativeai google-api-python-client python-dateutil
+        pip install google-generativeai google-oauth2 google-api-python-client python-dateutil
+        
+    - name: 🔍 Debug - Verificar variables
+      run: |
+        echo "GEMINI_API_KEY existe: $([ -n "$GEMINI_API_KEY" ] && echo "SI" || echo "NO")"
+        echo "YOUTUBE_CREDENTIALS_COMMENTS existe: $([ -n "$YOUTUBE_CREDENTIALS_COMMENTS" ] && echo "SI" || echo "NO")"
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
         
     - name: 👑 Ejecutar Bot Prosperidad Divina
       env:
@@ -50,7 +58,6 @@ jobs:
         git config --local user.name "Bot Prosperidad Divina"
         git add .
         
-        # ✅ MENSAJE CORREGIDO - Una sola línea para evitar errores YAML
         if ! git diff --staged --quiet; then
           git commit -m "👑 Bendiciones Automáticas $(date +'%d/%m/%Y %H:%M') - Ministerio digital activo ✨"
           git push
