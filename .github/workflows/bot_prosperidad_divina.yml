@@ -2,7 +2,7 @@ name: 🙏 Bot Prosperidad Divina - Comentarios Automáticos
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # ✅ CORREGIDO: Cada 4 horas
+    - cron: '0 */4 * * *'  # Cada 4 horas
   workflow_dispatch: # Ejecución manual
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
     - name: 👑 Ejecutar Bot Prosperidad Divina
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        YOUTUBE_CREDENTIALS: ${{ secrets.YOUTUBE_CREDENTIALS }}
+        YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
       run: |
         python bot_prosperidad_divina_HIBRIDO.py
         
