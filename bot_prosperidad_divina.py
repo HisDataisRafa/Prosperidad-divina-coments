@@ -547,7 +547,7 @@ Respuesta:"""
         stats['info_ejecucion']['duracion_minutos'] = round(duracion_segundos / 60, 2)
         
         # Guardar estadísticas en archivo
-        nombre_reporte = f"reporte_4rpm_{self.run_id}.json"
+        nombre_reporte = f"reporte_{self.run_id}.json"
         with open(nombre_reporte, 'w', encoding='utf-8') as f:
             json.dump(stats, f, indent=2, ensure_ascii=False)
         
