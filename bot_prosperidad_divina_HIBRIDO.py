@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🙏 Bot Prosperidad Divina - MODO HÍBRIDO
+🙏 Bot Prosperidad Divina - MODO HÍBRIDO CORREGIDO
 Lectura: YouTube API Key | Respuestas: OAuth
 CHANNEL_ID: UCgRg_G9C4-_AHBETHcc7cQQ
 """
@@ -23,24 +23,36 @@ class ProsperidadDivinaBotHibrido:
         print("="*80)
         print("🔄 CONFIGURACIÓN HÍBRIDA:")
         print("   📖 LECTURA: YouTube API Key (pública)")
-        print("   📝 RESPUESTAS: OAuth (autenticado)")
+        print("   📝 RESPUESTAS: OAuth específico para comentarios")
         print("   📊 Máximo 10 respuestas")
         print("   ⏰ Comentarios de últimas 48 horas")
+        print("   🛡️ Independiente del OAuth de miniaturas")
         print("="*80)
         
         # 🔑 Configuración de APIs
         self.gemini_api_key = os.environ.get('GEMINI_API_KEY')
-        self.youtube_credentials = os.environ.get('YOUTUBE_CREDENTIALS')
+        self.youtube_credentials_comments = os.environ.get('YOUTUBE_CREDENTIALS_COMMENTS')
         
         # 🆔 YouTube API Key para lectura (de conversaciones anteriores)
         self.youtube_api_key = "AIzaSyBXwOqq2OoC9TpO22OfbUogFaOqIFxF85A"
         
         print(f"🔐 Verificando credenciales...")
         print(f"   GEMINI_API_KEY: {'✅ PRESENTE' if self.gemini_api_key else '❌ FALTANTE'}")
-        print(f"   YOUTUBE_CREDENTIALS: {'✅ PRESENTE' if self.youtube_credentials else '❌ FALTANTE'}")
+        print(f"   YOUTUBE_CREDENTIALS_COMMENTS: {'✅ PRESENTE' if self.youtube_credentials_comments else '❌ FALTANTE'}")
         print(f"   YOUTUBE_API_KEY: {'✅ PRESENTE' if self.youtube_api_key else '❌ FALTANTE'}")
         
-        if not all([self.gemini_api_key, self.youtube_credentials, self.youtube_api_key]):
+        # Debug adicional para ver qué llega exactamente
+        if not self.gemini_api_key:
+            print(f"   🔍 GEMINI_API_KEY valor: '{self.gemini_api_key}'")
+        if not self.youtube_credentials_comments:
+            print(f"   🔍 YOUTUBE_CREDENTIALS_COMMENTS valor: '{self.youtube_credentials_comments}'")
+        
+        if not all([self.gemini_api_key, self.youtube_credentials_comments]):
+            print("❌ ERROR: Faltan credenciales específicas:")
+            if not self.gemini_api_key:
+                print("   - GEMINI_API_KEY no encontrada")
+            if not self.youtube_credentials_comments:
+                print("   - YOUTUBE_CREDENTIALS_COMMENTS no encontrada")
             raise ValueError("❌ Faltan credenciales del ministerio en variables de entorno")
         
         # 🤖 Configurar Gemini
@@ -97,26 +109,26 @@ class ProsperidadDivinaBotHibrido:
             raise
     
     def configurar_youtube_oauth(self):
-        """📝 Configurar YouTube OAuth para ESCRITURA"""
+        """📝 Configurar YouTube OAuth para ESCRITURA (comentarios)"""
         try:
-            print("📝 Configurando YouTube OAuth para escritura...")
+            print("📝 Configurando YouTube OAuth específico para comentarios...")
             
-            # Parsear credenciales JSON
-            creds_data = json.loads(self.youtube_credentials)
-            print(f"   📊 Credenciales parseadas: {len(creds_data)} campos")
+            # Parsear credenciales JSON del nuevo OAuth
+            creds_data = json.loads(self.youtube_credentials_comments)
+            print(f"   📊 Credenciales de comentarios parseadas: {len(creds_data)} campos")
             
             # Crear objeto de credenciales
             creds = Credentials.from_authorized_user_info(creds_data)
-            print(f"   🔑 Objeto de credenciales creado")
+            print(f"   🔑 Objeto de credenciales para comentarios creado")
             
             # Crear servicio YouTube
             youtube = build('youtube', 'v3', credentials=creds)
-            print("✅ YouTube OAuth configurado para escritura")
+            print("✅ YouTube OAuth para comentarios configurado exitosamente")
             
             return youtube
             
         except Exception as e:
-            print(f"❌ Error configurando OAuth: {e}")
+            print(f"❌ Error configurando OAuth para comentarios: {e}")
             print(f"   📊 Tipo de error: {type(e).__name__}")
             print(f"   📄 Detalle: {str(e)}")
             raise
@@ -616,8 +628,8 @@ class ProsperidadDivinaBotHibrido:
             'timestamp': ahora.isoformat(),
             'fecha_legible': ahora.strftime('%d de %B %Y - %H:%M'),
             'channel_id': self.channel_id,
-            'modo': 'HIBRIDO_10_COMENTARIOS_48H',
-            'metodo': 'LECTURA_API_KEY_ESCRITURA_OAUTH',
+            'modo': 'HIBRIDO_OAUTH_COMENTARIOS_10_RESPUESTAS_48H',
+            'metodo': 'LECTURA_API_KEY_ESCRITURA_OAUTH_COMENTARIOS',
             'stats': self.stats,
             'config': {
                 'horas_buscadas': self.hace_horas,
@@ -635,9 +647,10 @@ class ProsperidadDivinaBotHibrido:
         print(f"\n📋 REPORTE DETALLADO - MODO HÍBRIDO")
         print(f"🕐 {reporte['fecha_legible']}")
         print(f"📺 Canal: {self.channel_id}")
-        print(f"🔄 Modo: HÍBRIDO (API Key + OAuth)")
+        print(f"🔄 Modo: HÍBRIDO (API Key + OAuth Comentarios)")
         print(f"   📖 Lectura: YouTube API Key")
-        print(f"   📝 Escritura: YouTube OAuth")
+        print(f"   📝 Escritura: YouTube OAuth específico para comentarios")
+        print(f"   🛡️ OAuth de miniaturas protegido (no se usa aquí)")
         print(f"🧪 Configuración: {self.max_respuestas} respuestas máximo, {self.hace_horas}h búsqueda")
         print(f"\n📊 ESTADÍSTICAS FINALES:")
         print(f"   💬 Comentarios procesados: {self.stats['comentarios_procesados']}")
@@ -662,8 +675,9 @@ def main():
         print("   📊 Máximo 10 respuestas")
         print("   ⏰ Búsqueda en últimas 48 horas")
         print("   📖 LECTURA: YouTube API Key (sin permisos especiales)")
-        print("   📝 ESCRITURA: YouTube OAuth (permisos de modificación)")
+        print("   📝 ESCRITURA: YouTube OAuth específico para comentarios")
         print("   🔥 Respuestas REALES automáticas")
+        print("   🛡️ OAuth de miniaturas NO se toca (funcionará independientemente)")
         print("="*80)
         
         # Inicializar bot
