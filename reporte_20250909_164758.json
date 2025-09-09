@@ -1,0 +1,32 @@
+{
+  "info_ejecucion": {
+    "id": "20250909_164758",
+    "inicio": "2025-09-09T16:48:13.530764",
+    "modo": "CONFIGURACION_800_RPD",
+    "modelo": "gemini-2.5-flash-lite",
+    "max_comentarios": 17,
+    "rpm_configurado": 4.0,
+    "rpd_objetivo": 816,
+    "ejecuciones_dia": 48,
+    "fin": "2025-09-09T16:52:51.650520",
+    "duracion_segundos": 278.12,
+    "duracion_minutos": 4.64
+  },
+  "resumen": {
+    "comentarios_procesados": 21,
+    "respuestas_exitosas": 17,
+    "respuestas_ia_exitosas": 17,
+    "errores_gemini": 0,
+    "errores_youtube": 0,
+    "comentarios_filtrados": 4,
+    "respuestas_bloqueadas_seguridad": 0
+  },
+  "tipos_procesados": {
+    "saludo": 5,
+    "gratitud": 7,
+    "general": 5
+  },
+  "acciones_de_moderacion": {
+    "crisis_ignorada": 0
+  }
+}
