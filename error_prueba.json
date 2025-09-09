@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-09T00:43:01.422504",
+  "timestamp": "2025-09-09T00:47:13.630464",
   "error": "❌ Faltan credenciales del ministerio en variables de entorno",
   "tipo": "ValueError",
   "modo": "PRUEBA"
