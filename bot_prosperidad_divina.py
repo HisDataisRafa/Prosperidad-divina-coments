@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🙏 Bot Prosperidad Divina - CONFIGURACIÓN ULTRA CONSERVADORA 4 RPM
+🙏 Bot Prosperidad Divina - GEMINI 2.5 FLASH-LITE OPTIMIZADO
 Fecha: 09 de Septiembre de 2025
 
-🐌 CONFIGURACIÓN ULTRA CONSERVADORA:
-- ✅ Solo 10 comentarios para prueba robusta
-- ✅ 15 segundos entre requests (4 RPM - 20% margen de seguridad)
-- ✅ Diagnóstico completo de APIs al inicio
-- ✅ Manejo robusto de errores y fallbacks variados
-- ✅ Respeta límites Gemini Free Tier 2025 con margen extra
+🚀 CONFIGURACIÓN OPTIMIZADA:
+- ✅ Gemini 2.5 Flash-Lite (1,000 RPD - 4x más requests)
+- ✅ Safety settings menos restrictivos para contenido espiritual
+- ✅ Manejo robusto de bloqueos de seguridad
+- ✅ Análisis de contexto de video mejorado
+- ✅ 4 RPM seguro con capacidad de escalar
+- ✅ Fallbacks inteligentes por tipo de comentario
 """
 
 import os
@@ -26,11 +27,11 @@ from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-class ProsperidadDivina_UltraConservadora4RPM:
+class ProsperidadDivina_FlashLiteOptimizado:
     def __init__(self):
         self.run_id = datetime.now().strftime('%Y%m%d_%H%M%S')
         print("="*80)
-        print(f"🐌 BOT PROSPERIDAD DIVINA - ULTRA CONSERVADOR 4 RPM")
+        print(f"🚀 BOT PROSPERIDAD DIVINA - GEMINI 2.5 FLASH-LITE OPTIMIZADO")
         print(f"🆔 ID de Ejecución: {self.run_id}")
         print("="*80)
 
@@ -53,13 +54,13 @@ class ProsperidadDivina_UltraConservadora4RPM:
         if not all([self.gemini_api_key, self.youtube_credentials_comments]):
             raise ValueError("❌ ERROR CRÍTICO: Faltan credenciales en las variables de entorno.")
 
-        # --- 2. PARÁMETROS ULTRA CONSERVADORES 4 RPM ---
+        # --- 2. PARÁMETROS OPTIMIZADOS FLASH-LITE ---
         self.channel_id = 'UCgRg_G9C4-_AHBETHcc7cQQ'
-        self.max_respuestas_por_ejecucion = 10  # Prueba robusta con 10 comentarios
-        self.rate_limit_seconds = 15  # 15 segundos = 4 RPM (margen 20% bajo límite)
+        self.max_respuestas_por_ejecucion = 10  # Mantener conservador, escalable a 40+
+        self.rate_limit_seconds = 15  # 4 RPM seguro, escalable a 5+ RPM
 
         # --- 3. INICIALIZACIÓN CON DIAGNÓSTICO ---
-        self.model = self.configurar_gemini_con_diagnostico()
+        self.model = self.configurar_gemini_flash_lite()
         self.youtube_lectura = self.configurar_youtube_lectura()
         self.youtube_escritura = self.configurar_youtube_oauth()
 
@@ -70,34 +71,37 @@ class ProsperidadDivina_UltraConservadora4RPM:
         self.memoria_conversacion_usuario = self.cargar_memoria_conversaciones()
         self.stats = self.inicializar_estadisticas()
         
-        print(f"\n🎯 CONFIGURACIÓN ULTRA CONSERVADORA:")
+        print(f"\n🎯 CONFIGURACIÓN FLASH-LITE OPTIMIZADA:")
+        print(f"   🤖 Modelo: Gemini 2.5 Flash-Lite (1,000 RPD)")
         print(f"   📝 Máximo comentarios: {self.max_respuestas_por_ejecucion}")
         print(f"   ⏱️  Pausa entre requests: {self.rate_limit_seconds}s")
-        print(f"   🔢 RPM (requests/minuto): {60/self.rate_limit_seconds:.1f}")
-        print(f"   ⏳ Tiempo estimado total: {(self.max_respuestas_por_ejecucion * self.rate_limit_seconds)/60:.1f} minutos")
-        print(f"   🛡️  Margen de seguridad: 20% bajo límite Gemini Free (5 RPM)")
+        print(f"   🔢 RPM actual: {60/self.rate_limit_seconds:.1f}")
+        print(f"   📈 RPM escalable: Hasta 16+ (con 1,000 RPD)")
+        print(f"   ⏳ Tiempo estimado: {(self.max_respuestas_por_ejecucion * self.rate_limit_seconds)/60:.1f} min")
+        print(f"   🛡️  Safety: Configuración optimizada para contenido espiritual")
         print("="*80)
 
-    def configurar_gemini_con_diagnostico(self) -> genai.GenerativeModel:
-        """Configuración de Gemini con una prueba de conexión inicial."""
+    def configurar_gemini_flash_lite(self) -> genai.GenerativeModel:
+        """Configuración de Gemini 2.5 Flash-Lite con safety settings optimizados."""
         try:
-            print("\n🤖 CONFIGURANDO GEMINI AI CON DIAGNÓSTICO...")
+            print("\n🤖 CONFIGURANDO GEMINI 2.5 FLASH-LITE...")
             genai.configure(api_key=self.gemini_api_key)
-            model = genai.GenerativeModel('gemini-2.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-flash-lite')
             
-            print("   🧪 Realizando prueba de conexión a la API...")
+            print("   🧪 Realizando prueba de conexión con Flash-Lite...")
             print(f"   ⏱️  Aplicando pausa inicial de {self.rate_limit_seconds}s...")
-            time.sleep(self.rate_limit_seconds)  # Pausa antes de la primera llamada
+            time.sleep(self.rate_limit_seconds)
             
-            test_response = model.generate_content("Responde exactamente: 'Prueba exitosa 2025'")
+            test_response = model.generate_content("Responde exactamente: 'Flash-Lite funcionando 2025'")
             
-            if "prueba exitosa" in test_response.text.strip().lower():
-                print("   🎉 ¡DIAGNÓSTICO EXITOSO! La conexión con Gemini funciona perfectamente.")
+            if "flash-lite funcionando" in test_response.text.strip().lower():
+                print("   🎉 ¡DIAGNÓSTICO EXITOSO! Gemini 2.5 Flash-Lite funcionando perfectamente.")
+                print("   ⚡ Modelo optimizado para alto rendimiento y menos bloqueos.")
             else:
-                print(f"   ⚠️  ADVERTENCIA: Gemini responde, pero con un formato inesperado: '{test_response.text.strip()}'")
+                print(f"   ⚠️  ADVERTENCIA: Flash-Lite responde, pero formato inesperado: '{test_response.text.strip()}'")
             return model
         except Exception as e:
-            print(f"   ❌ ERROR FATAL EN CONFIGURACIÓN DE GEMINI:")
+            print(f"   ❌ ERROR FATAL EN CONFIGURACIÓN DE GEMINI FLASH-LITE:")
             print(f"   🔍 Tipo: {type(e).__name__}, Mensaje: {str(e)}")
             raise
 
@@ -278,9 +282,10 @@ class ProsperidadDivina_UltraConservadora4RPM:
             return False
         return True
 
-    def detectar_tipo_comentario(self, texto: str) -> str:
+    def detectar_tipo_comentario(self, texto: str, titulo_video: str = "") -> str:
         """Detecta el tipo de comentario para personalizar la respuesta."""
         texto_lower = texto.lower()
+        titulo_lower = titulo_video.lower() if titulo_video else ""
         
         # Palabras de crisis - requieren atención especial
         palabras_crisis = ['no aguanto', 'suicidio', 'morir', 'matarme', 'acabar con todo']
@@ -291,26 +296,32 @@ class ProsperidadDivina_UltraConservadora4RPM:
         if len(texto.split()) <= 3:
             return 'saludo'
         
-        # Temas de abundancia/dinero
-        palabras_abundancia = ['dinero', 'trabajo', 'abundancia', 'prosperidad', 'riqueza']
-        if any(word in texto_lower for word in palabras_abundancia):
+        # Temas de abundancia/dinero (considerar también el título del video)
+        palabras_abundancia = ['dinero', 'trabajo', 'abundancia', 'prosperidad', 'riqueza', 'financier']
+        if (any(word in texto_lower for word in palabras_abundancia) or 
+            any(word in titulo_lower for word in ['abundancia', 'prosperidad', 'dinero', 'riqueza'])):
             return 'abundancia'
         
         # Dolor emocional
-        palabras_dolor = ['dolor', 'triste', 'depresión', 'ansiedad', 'solo']
+        palabras_dolor = ['dolor', 'triste', 'depresión', 'ansiedad', 'solo', 'sufr']
         if any(word in texto_lower for word in palabras_dolor):
             return 'dolor_confusion'
         
         # Dudas o hostilidad
-        palabras_duda = ['mentira', 'falso', 'estafa', 'no funciona']
+        palabras_duda = ['mentira', 'falso', 'estafa', 'no funciona', 'fake']
         if any(word in texto_lower for word in palabras_duda):
             return 'duda_hostilidad'
         
+        # Agradecimientos y confirmaciones
+        palabras_gratitud = ['gracias', 'bendiciones', 'amén', 'sí acepto', 'recibo']
+        if any(word in texto_lower for word in palabras_gratitud):
+            return 'gratitud'
+        
         return 'general'
 
-    def generar_respuesta_gemini_segura(self, comentario_actual: str, contexto_previo: List[str], 
-                                       tipo: str, info_comentario: Dict) -> str:
-        """Genera una respuesta usando Gemini con manejo robusto de errores."""
+    def generar_respuesta_gemini_optimizada(self, comentario_actual: str, contexto_previo: List[str], 
+                                           tipo: str, info_comentario: Dict) -> str:
+        """Genera una respuesta usando Gemini 2.5 Flash-Lite con configuración optimizada."""
         
         # No responder a comentarios de crisis
         if tipo == 'crisis':
@@ -325,45 +336,79 @@ class ProsperidadDivina_UltraConservadora4RPM:
                 contexto_str = ("Mensajes anteriores de este usuario:\n" + 
                                "\n".join(f"- \"{msg}\"" for msg in contexto_previo) + "\n\n")
             
-            # Crear prompt personalizado según el tipo
+            # Crear prompt personalizado incluyendo el contexto del video
             prompt = f"""Eres un asistente espiritual del canal "Prosperidad Divina". 
 
-{contexto_str}Usuario: {info_comentario['autor_nombre']}
+{contexto_str}Video actual: "{info_comentario['video_titulo']}"
+Usuario: {info_comentario['autor_nombre']}
 Comentario actual: "{comentario_actual}"
 
 Instrucciones:
 - Responde con máximo 2 líneas
 - Sé empático, positivo y espiritual
 - Usa emojis apropiados (✨🙏💫🌟)
+- Si es relevante, conecta tu respuesta con el tema del video
 - Enfócate en bendiciones y luz divina
 - Mantén un tono cálido y alentador
 
 Respuesta:"""
             
-            print(f"      🧠 Enviando a Gemini... (pausa de {self.rate_limit_seconds}s para 4 RPM)")
+            print(f"      🧠 Enviando a Flash-Lite... (pausa de {self.rate_limit_seconds}s)")
             time.sleep(self.rate_limit_seconds)
+            
+            # Configurar safety settings menos restrictivos para contenido espiritual
+            safety_settings = [
+                {
+                    "category": "HARM_CATEGORY_HATE_SPEECH",
+                    "threshold": "BLOCK_ONLY_HIGH"
+                },
+                {
+                    "category": "HARM_CATEGORY_DANGEROUS_CONTENT", 
+                    "threshold": "BLOCK_ONLY_HIGH"
+                },
+                {
+                    "category": "HARM_CATEGORY_HARASSMENT",
+                    "threshold": "BLOCK_ONLY_HIGH"
+                },
+                {
+                    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    "threshold": "BLOCK_ONLY_HIGH"
+                }
+            ]
             
             response = self.model.generate_content(
                 prompt,
                 generation_config=genai.types.GenerationConfig(
                     temperature=0.7,
                     max_output_tokens=150
-                )
+                ),
+                safety_settings=safety_settings
             )
             
+            # Verificar si la respuesta fue bloqueada por filtros de seguridad
             if not response or not response.text:
-                raise ValueError("Respuesta vacía de Gemini")
+                if hasattr(response, 'candidates') and response.candidates:
+                    finish_reason = response.candidates[0].finish_reason
+                    if finish_reason == 2:  # SAFETY
+                        print(f"      ⚠️  Respuesta bloqueada por filtros de seguridad de Gemini")
+                        self.stats['resumen']['respuestas_bloqueadas_seguridad'] = self.stats['resumen'].get('respuestas_bloqueadas_seguridad', 0) + 1
+                        raise ValueError("Respuesta bloqueada por seguridad - usando fallback")
+                    else:
+                        print(f"      ⚠️  Respuesta vacía, finish_reason: {finish_reason}")
+                        raise ValueError("Respuesta vacía de Gemini")
+                else:
+                    raise ValueError("Respuesta vacía de Gemini")
             
             respuesta = response.text.strip()
-            print(f"      ✅ Gemini respondió: \"{respuesta[:70]}...\"")
+            print(f"      ✅ Flash-Lite respondió: \"{respuesta[:70]}...\"")
             self.stats['resumen']['respuestas_ia_exitosas'] += 1
             return respuesta
             
         except Exception as e:
-            print(f"      ❌ Error en Gemini: {type(e).__name__} - {str(e)}")
+            print(f"      ❌ Error en Flash-Lite: {type(e).__name__} - {str(e)}")
             self.stats['resumen']['errores_gemini'] += 1
             
-            # Fallbacks por tipo de comentario
+            # Fallbacks inteligentes por tipo de comentario
             fallbacks = {
                 'saludo': [
                     "Bendiciones de luz en tu camino ✨🙏",
@@ -434,9 +479,11 @@ Respuesta:"""
             'info_ejecucion': {
                 'id': self.run_id,
                 'inicio': datetime.now().isoformat(),
-                'modo': 'ULTRA_CONSERVADORA_4RPM',
+                'modo': 'GEMINI_2.5_FLASH_LITE_OPTIMIZADO',
+                'modelo': 'gemini-2.5-flash-lite',
                 'max_comentarios': self.max_respuestas_por_ejecucion,
-                'rpm_configurado': round(60/self.rate_limit_seconds, 1)
+                'rpm_configurado': round(60/self.rate_limit_seconds, 1),
+                'limite_diario_teorico': 1000
             },
             'resumen': {
                 'comentarios_procesados': 0,
@@ -444,7 +491,8 @@ Respuesta:"""
                 'respuestas_ia_exitosas': 0,
                 'errores_gemini': 0,
                 'errores_youtube': 0,
-                'comentarios_filtrados': 0
+                'comentarios_filtrados': 0,
+                'respuestas_bloqueadas_seguridad': 0
             },
             'tipos_procesados': {},
             'acciones_de_moderacion': {
@@ -452,19 +500,20 @@ Respuesta:"""
             }
         }
 
-    def ejecutar_prueba_robusta(self):
-        """Ejecuta la prueba con 10 comentarios para validación robusta."""
-        print(f"\n🚀 INICIANDO PRUEBA ROBUSTA DE 10 COMENTARIOS...")
+    def ejecutar_optimizado(self):
+        """Ejecuta el bot con configuración optimizada Flash-Lite."""
+        print(f"\n🚀 INICIANDO BOT OPTIMIZADO CON FLASH-LITE...")
         inicio = datetime.now()
         respuestas_enviadas = 0
         
         # Obtener videos recientes
         videos = self.obtener_videos_recientes()
         if not videos:
-            print("❌ No se pudieron obtener videos. Abortando prueba.")
+            print("❌ No se pudieron obtener videos. Abortando ejecución.")
             return
         
         print(f"\n🎯 OBJETIVO: Procesar {self.max_respuestas_por_ejecucion} comentarios")
+        print(f"⚡ Modelo: Gemini 2.5 Flash-Lite (1,000 RPD)")
         print(f"⏱️  Tiempo estimado: {(self.max_respuestas_por_ejecucion * self.rate_limit_seconds)/60:.1f} minutos")
         print("-" * 60)
         
@@ -499,18 +548,19 @@ Respuesta:"""
                 print(f"\n   💬 PROCESANDO COMENTARIO #{respuestas_enviadas + 1}")
                 print(f"      👤 Usuario: {comentario['autor_nombre']}")
                 print(f"      📝 Texto: \"{comentario['texto'][:60]}...\"")
+                print(f"      🎬 Video: {comentario['video_titulo'][:40]}...")
                 
                 # Obtener contexto previo del usuario
                 contexto_previo = self.obtener_contexto_usuario(comentario['autor_id'])
                 if contexto_previo:
                     print(f"      🧠 Contexto previo: {len(contexto_previo)} mensajes")
                 
-                # Detectar tipo de comentario
-                tipo = self.detectar_tipo_comentario(comentario['texto'])
+                # Detectar tipo de comentario con contexto de video
+                tipo = self.detectar_tipo_comentario(comentario['texto'], comentario['video_titulo'])
                 print(f"      🏷️  Tipo detectado: {tipo}")
                 
-                # Generar respuesta
-                respuesta = self.generar_respuesta_gemini_segura(
+                # Generar respuesta con Flash-Lite optimizado
+                respuesta = self.generar_respuesta_gemini_optimizada(
                     comentario['texto'], 
                     contexto_previo, 
                     tipo, 
@@ -558,12 +608,17 @@ Respuesta:"""
         
         # Mostrar reporte en consola
         print("\n" + "="*80)
-        print("📊 REPORTE FINAL - PRUEBA ULTRA CONSERVADORA 4 RPM")
+        print("📊 REPORTE FINAL - GEMINI 2.5 FLASH-LITE OPTIMIZADO")
         print("="*80)
         
-        print(f"⏱️  TIEMPO DE EJECUCIÓN:")
-        print(f"   - Duración total: {stats['info_ejecucion']['duracion_minutos']} minutos")
+        print(f"⚡ MODELO Y CONFIGURACIÓN:")
+        print(f"   - Modelo: {stats['info_ejecucion']['modelo']}")
         print(f"   - RPM configurado: {stats['info_ejecucion']['rpm_configurado']}")
+        print(f"   - Límite diario teórico: {stats['info_ejecucion']['limite_diario_teorico']} RPD")
+        
+        print(f"\n⏱️  TIEMPO DE EJECUCIÓN:")
+        print(f"   - Duración total: {stats['info_ejecucion']['duracion_minutos']} minutos")
+        print(f"   - Tiempo promedio por comentario: {stats['info_ejecucion']['duracion_segundos']/max(stats['resumen']['respuestas_exitosas'], 1):.1f}s")
         
         print(f"\n📈 RESULTADOS:")
         print(f"   - Comentarios procesados: {stats['resumen']['comentarios_procesados']}")
@@ -574,6 +629,7 @@ Respuesta:"""
         print(f"   - Respuestas de Gemini: {stats['resumen']['respuestas_ia_exitosas']}")
         print(f"   - Fallbacks usados: {stats['resumen']['respuestas_exitosas'] - stats['resumen']['respuestas_ia_exitosas']}")
         print(f"   - Errores Gemini: {stats['resumen']['errores_gemini']}")
+        print(f"   - Bloqueadas por seguridad: {stats['resumen'].get('respuestas_bloqueadas_seguridad', 0)}")
         print(f"   - Errores YouTube: {stats['resumen']['errores_youtube']}")
         
         if stats['tipos_procesados']:
@@ -583,30 +639,54 @@ Respuesta:"""
         
         print(f"\n🛡️  MODERACIÓN:")
         print(f"   - Comentarios de crisis ignorados: {stats['acciones_de_moderacion']['crisis_ignorada']}")
+        print(f"   - Filtros de seguridad activados: {stats['resumen'].get('respuestas_bloqueadas_seguridad', 0)}")
+        
+        # Calcular tasa de éxito de IA
+        if stats['resumen']['respuestas_exitosas'] > 0:
+            tasa_ia = (stats['resumen']['respuestas_ia_exitosas'] / stats['resumen']['respuestas_exitosas']) * 100
+            tasa_bloqueos = (stats['resumen'].get('respuestas_bloqueadas_seguridad', 0) / stats['resumen']['comentarios_procesados']) * 100 if stats['resumen']['comentarios_procesados'] > 0 else 0
+        else:
+            tasa_ia = 0
+            tasa_bloqueos = 0
+        
+        print(f"\n📊 MÉTRICAS DE RENDIMIENTO:")
+        print(f"   - Tasa de éxito IA: {tasa_ia:.1f}%")
+        print(f"   - Tasa de bloqueos: {tasa_bloqueos:.1f}%")
         
         print(f"\n--- 🏆 DIAGNÓSTICO FINAL ---")
         if stats['resumen']['respuestas_ia_exitosas'] >= 8:
-            print("🎉 ¡EXCELENTE! Gemini funcionando perfectamente. Listo para producción.")
+            print("🎉 ¡EXCELENTE! Flash-Lite funcionando perfectamente. Listo para escalar.")
+            print("💡 Puedes aumentar RPM o comentarios por ejecución.")
         elif stats['resumen']['respuestas_ia_exitosas'] >= 5:
-            print("✅ BUENO. Gemini funciona bien con algunos errores menores.")
+            print("✅ BUENO. Flash-Lite funciona bien con algunos bloqueos menores.")
+            print("💡 Los safety settings optimizados están funcionando.")
         elif stats['resumen']['respuestas_exitosas'] > 0:
-            print("⚠️  PROBLEMAS CON GEMINI. Solo fallbacks funcionaron. Revisa API Key y cuotas.")
+            print("⚠️  PROBLEMAS CON FLASH-LITE. Muchos fallbacks. Revisa configuración.")
         else:
             print("❌ ERROR CRÍTICO. No se enviaron respuestas. Revisa configuración completa.")
+        
+        print(f"\n🚀 POTENCIAL DE ESCALAMIENTO:")
+        print(f"   - Configuración actual: {stats['info_ejecucion']['rpm_configurado']} RPM")
+        print(f"   - Máximo teórico con 1,000 RPD: ~16 RPM")
+        print(f"   - Comentarios/día actuales: ~{stats['resumen']['respuestas_exitosas'] * 24}")
+        print(f"   - Comentarios/día máximo teórico: ~1,000")
         
         print(f"\n📄 Reporte detallado guardado en: {nombre_reporte}")
         print("="*80)
 
 if __name__ == "__main__":
     try:
-        bot = ProsperidadDivina_UltraConservadora4RPM()
-        bot.ejecutar_prueba_robusta()
+        bot = ProsperidadDivina_FlashLiteOptimizado()
+        bot.ejecutar_optimizado()
         
-        print("\n🎯 PRUEBA COMPLETADA")
-        print("Si todo funcionó bien, puedes:")
-        print("1. Aumentar max_respuestas_por_ejecucion para producción")
-        print("2. Ejecutar el bot varias veces al día")
-        print("3. Mantener el rate_limit_seconds = 15 para seguridad")
+        print("\n🎯 EJECUCIÓN COMPLETADA CON ÉXITO")
+        print("\n🚀 PRÓXIMOS PASOS RECOMENDADOS:")
+        print("1. Si todo funcionó bien, puedes:")
+        print("   • Aumentar max_respuestas_por_ejecucion hasta 40+")
+        print("   • Reducir rate_limit_seconds a 4-6 segundos")
+        print("   • Ejecutar cada 20 minutos: cron '0,20,40 * * *'")
+        print("2. Flash-Lite soporta hasta 1,000 RPD - ¡mucho margen de crecimiento!")
+        print("3. Monitorea bloqueos de seguridad en los reportes")
         
     except KeyboardInterrupt:
         print("\n⏹️  Ejecución interrumpida por el usuario.")
