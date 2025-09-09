@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-09T00:28:51.043408",
+  "timestamp": "2025-09-09T00:32:27.172951",
   "error": "can't compare offset-naive and offset-aware datetimes",
   "tipo": "TypeError"
 }
