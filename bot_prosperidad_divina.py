@@ -330,7 +330,7 @@ class ProsperidadDivina_800RPD:
             
             # Prompt optimizado para 800 RPD
             # Prompt optimizado - uso selectivo del contexto del video
-prompt = f"""Eres un asistente espiritual del canal "Prosperidad Divina". 
+            prompt = f"""Eres un asistente espiritual del canal "Prosperidad Divina". 
 
 {contexto_str}Video: "{info_comentario['video_titulo']}"
 Usuario: {info_comentario['autor_nombre']}
