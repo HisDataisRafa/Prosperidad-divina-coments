@@ -22,7 +22,7 @@ jobs:
         
     - name: 📦 Instalar dependencias
       run: |
-        pip install google-generativeai google-oauth2 google-api-python-client python-dateutil
+        pip install google-generativeai google-auth google-auth-oauthlib google-api-python-client python-dateutil
         
     - name: 🔍 Debug - Verificar variables
       run: |
