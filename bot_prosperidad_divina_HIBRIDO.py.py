@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🙏 Bot Prosperidad Divina - VERSIÓN DEBUG COMPLETA
-Ministerio Digital con IA - MODO PRUEBA con logging extensivo
+🙏 Bot Prosperidad Divina - MODO HÍBRIDO
+Lectura: YouTube API Key | Respuestas: OAuth
 CHANNEL_ID: UCgRg_G9C4-_AHBETHcc7cQQ
 """
 
@@ -17,33 +17,38 @@ from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-class ProsperidadDivinaBotDebug:
+class ProsperidadDivinaBotHibrido:
     def __init__(self):
-        print("👑 INICIANDO BOT PROSPERIDAD DIVINA - MODO DEBUG COMPLETO")
+        print("👑 INICIANDO BOT PROSPERIDAD DIVINA - MODO HÍBRIDO")
         print("="*80)
-        print("🧪 CONFIGURACIÓN DEBUG:")
+        print("🔄 CONFIGURACIÓN HÍBRIDA:")
+        print("   📖 LECTURA: YouTube API Key (pública)")
+        print("   📝 RESPUESTAS: OAuth (autenticado)")
         print("   📊 Máximo 10 respuestas")
         print("   ⏰ Comentarios de últimas 48 horas")
-        print("   🔍 Logging extensivo para debug")
-        print("   📝 Manejo de errores mejorado")
         print("="*80)
         
         # 🔑 Configuración de APIs
         self.gemini_api_key = os.environ.get('GEMINI_API_KEY')
         self.youtube_credentials = os.environ.get('YOUTUBE_CREDENTIALS')
         
+        # 🆔 YouTube API Key para lectura (de conversaciones anteriores)
+        self.youtube_api_key = "AIzaSyBXwOqq2OoC9TpO22OfbUogFaOqIFxF85A"
+        
         print(f"🔐 Verificando credenciales...")
         print(f"   GEMINI_API_KEY: {'✅ PRESENTE' if self.gemini_api_key else '❌ FALTANTE'}")
         print(f"   YOUTUBE_CREDENTIALS: {'✅ PRESENTE' if self.youtube_credentials else '❌ FALTANTE'}")
+        print(f"   YOUTUBE_API_KEY: {'✅ PRESENTE' if self.youtube_api_key else '❌ FALTANTE'}")
         
-        if not all([self.gemini_api_key, self.youtube_credentials]):
+        if not all([self.gemini_api_key, self.youtube_credentials, self.youtube_api_key]):
             raise ValueError("❌ Faltan credenciales del ministerio en variables de entorno")
         
         # 🤖 Configurar Gemini
         self.configurar_gemini()
         
-        # 📺 Configurar YouTube con OAuth
-        self.youtube = self.configurar_youtube_oauth()
+        # 📺 Configurar YouTube - MODO HÍBRIDO
+        self.youtube_lectura = self.configurar_youtube_lectura()  # API Key para leer
+        self.youtube_escritura = self.configurar_youtube_oauth()  # OAuth para responder
         
         # 🆔 Channel ID confirmado
         self.channel_id = 'UCgRg_G9C4-_AHBETHcc7cQQ'  # Prosperidad Divina
@@ -60,14 +65,14 @@ class ProsperidadDivinaBotDebug:
             'general': 0
         }
         
-        # ⏰ Configuración para PRUEBA DEBUG
+        # ⏰ Configuración para PRUEBA HÍBRIDA
         self.hace_horas = 48  # 48 horas para encontrar comentarios
         self.max_respuestas = 10  # 10 comentarios para prueba
         
         # 📝 Log detallado
         self.log_detallado = []
         
-        print(f"✅ Bot configurado para canal: {self.channel_id}")
+        print(f"✅ Bot híbrido configurado para canal: {self.channel_id}")
         
     def configurar_gemini(self):
         """🤖 Configurar Gemini API"""
@@ -79,11 +84,22 @@ class ProsperidadDivinaBotDebug:
         except Exception as e:
             print(f"❌ Error configurando Gemini: {e}")
             raise
-        
-    def configurar_youtube_oauth(self):
-        """🔐 Configurar YouTube API con credenciales OAuth"""
+    
+    def configurar_youtube_lectura(self):
+        """📖 Configurar YouTube API para LECTURA (API Key)"""
         try:
-            print("🔐 Configurando YouTube OAuth...")
+            print("📖 Configurando YouTube API Key para lectura...")
+            youtube = build('youtube', 'v3', developerKey=self.youtube_api_key)
+            print("✅ YouTube API Key configurado para lectura")
+            return youtube
+        except Exception as e:
+            print(f"❌ Error configurando YouTube API Key: {e}")
+            raise
+    
+    def configurar_youtube_oauth(self):
+        """📝 Configurar YouTube OAuth para ESCRITURA"""
+        try:
+            print("📝 Configurando YouTube OAuth para escritura...")
             
             # Parsear credenciales JSON
             creds_data = json.loads(self.youtube_credentials)
@@ -95,7 +111,7 @@ class ProsperidadDivinaBotDebug:
             
             # Crear servicio YouTube
             youtube = build('youtube', 'v3', credentials=creds)
-            print("✅ YouTube OAuth configurado exitosamente")
+            print("✅ YouTube OAuth configurado para escritura")
             
             return youtube
             
@@ -106,12 +122,12 @@ class ProsperidadDivinaBotDebug:
             raise
     
     def verificar_canal(self):
-        """🔍 Verificar que podemos acceder al canal correcto"""
+        """🔍 Verificar que podemos acceder al canal"""
         try:
             print(f"\n🔍 VERIFICANDO ACCESO AL CANAL: {self.channel_id}")
             
-            # Verificar canal por ID
-            response = self.youtube.channels().list(
+            # Usar API Key para verificación (más confiable)
+            response = self.youtube_lectura.channels().list(
                 part='id,snippet,statistics',
                 id=self.channel_id
             ).execute()
@@ -154,9 +170,9 @@ class ProsperidadDivinaBotDebug:
         try:
             print(f"\n📺 OBTENIENDO VIDEOS RECIENTES DEL CANAL...")
             
-            # Obtener uploads playlist
+            # Usar API Key para lectura
             print("   🔍 Obteniendo playlist de uploads...")
-            channel_response = self.youtube.channels().list(
+            channel_response = self.youtube_lectura.channels().list(
                 part='contentDetails',
                 id=self.channel_id
             ).execute()
@@ -170,7 +186,7 @@ class ProsperidadDivinaBotDebug:
             
             # Obtener videos recientes
             print("   📹 Obteniendo videos de la playlist...")
-            playlist_response = self.youtube.playlistItems().list(
+            playlist_response = self.youtube_lectura.playlistItems().list(
                 part='snippet',
                 playlistId=uploads_playlist,
                 maxResults=8  # Más videos para encontrar comentarios
@@ -208,21 +224,24 @@ class ProsperidadDivinaBotDebug:
             return []
     
     def obtener_comentarios_recientes(self, video_id: str, titulo_video: str) -> List[Dict]:
-        """💬 Obtener comentarios recientes de un video"""
+        """💬 Obtener comentarios recientes usando API Key"""
         try:
             print(f"\n💬 ANALIZANDO COMENTARIOS DE: {titulo_video[:50]}...")
             print(f"   🆔 Video ID: {video_id}")
+            print(f"   📖 Usando API Key para lectura...")
             
             # Calcular fecha límite con timezone UTC
             fecha_limite = datetime.now(timezone.utc) - timedelta(hours=self.hace_horas)
             print(f"⏰ Buscando comentarios desde: {fecha_limite.strftime('%Y-%m-%d %H:%M UTC')} (últimas {self.hace_horas}h)")
             
             print("   📡 Llamando a YouTube API para comentarios...")
-            response = self.youtube.commentThreads().list(
+            
+            # USAR API KEY PARA LEER COMENTARIOS (no OAuth)
+            response = self.youtube_lectura.commentThreads().list(
                 part='snippet',
                 videoId=video_id,
                 order='time',
-                maxResults=50,  # Más comentarios para tener mejor chance
+                maxResults=50,
                 textFormat='plainText'
             ).execute()
             
@@ -281,7 +300,8 @@ class ProsperidadDivinaBotDebug:
                 'video': titulo_video[:50],
                 'comentarios_totales': comentarios_totales,
                 'comentarios_recientes': len(comentarios_recientes),
-                'fecha_limite': fecha_limite.isoformat()
+                'fecha_limite': fecha_limite.isoformat(),
+                'metodo': 'API_KEY_LECTURA'
             })
             
             return comentarios_recientes
@@ -296,7 +316,8 @@ class ProsperidadDivinaBotDebug:
                 'video': titulo_video[:50],
                 'error_tipo': 'HttpError',
                 'error_codigo': e.resp.status,
-                'error_detalle': str(e)
+                'error_detalle': str(e),
+                'metodo': 'API_KEY_LECTURA'
             })
             return []
             
@@ -309,7 +330,8 @@ class ProsperidadDivinaBotDebug:
                 'paso': f'error_comentarios_{video_id}',
                 'video': titulo_video[:50],
                 'error_tipo': type(e).__name__,
-                'error_detalle': str(e)
+                'error_detalle': str(e),
+                'metodo': 'API_KEY_LECTURA'
             })
             return []
     
@@ -444,9 +466,9 @@ class ProsperidadDivinaBotDebug:
             return respuestas_respaldo.get(tipo, respuestas_respaldo['general'])
     
     def responder_comentario(self, comentario_id: str, respuesta: str, comentario_original: Dict) -> bool:
-        """📝 Responder a un comentario REALMENTE"""
+        """📝 Responder comentario usando OAuth"""
         try:
-            print(f"\n📝 ENVIANDO RESPUESTA...")
+            print(f"\n📝 ENVIANDO RESPUESTA CON OAUTH...")
             print(f"   👤 Autor: {comentario_original['autor']}")
             print(f"   💬 Comentario: {comentario_original['texto'][:80]}...")
             print(f"   📝 Respuesta: {respuesta}")
@@ -459,10 +481,10 @@ class ProsperidadDivinaBotDebug:
                 }
             }
             
-            print("   📡 Enviando a YouTube API...")
+            print("   📡 Enviando con YouTube OAuth...")
             
-            # Enviar respuesta usando la API
-            response = self.youtube.comments().insert(
+            # USAR OAUTH PARA ENVIAR RESPUESTA
+            response = self.youtube_escritura.comments().insert(
                 part='snippet',
                 body=respuesta_data
             ).execute()
@@ -477,6 +499,7 @@ class ProsperidadDivinaBotDebug:
                 'comentario_original': comentario_original['texto'][:100],
                 'respuesta_enviada': respuesta,
                 'comment_id': response.get('id'),
+                'metodo': 'OAUTH_ESCRITURA',
                 'timestamp': datetime.now().isoformat()
             })
             
@@ -495,6 +518,7 @@ class ProsperidadDivinaBotDebug:
                 'error_tipo': 'HttpError',
                 'error_codigo': e.resp.status,
                 'error': error_details,
+                'metodo': 'OAUTH_ESCRITURA',
                 'timestamp': datetime.now().isoformat()
             })
             
@@ -507,8 +531,9 @@ class ProsperidadDivinaBotDebug:
             return False
     
     def procesar_comentarios(self):
-        """🚀 Proceso principal: obtener y responder comentarios - MODO DEBUG"""
-        print(f"\n🔄 INICIANDO PROCESAMIENTO EN MODO DEBUG")
+        """🚀 Proceso principal: obtener y responder comentarios - MODO HÍBRIDO"""
+        print(f"\n🔄 INICIANDO PROCESAMIENTO EN MODO HÍBRIDO")
+        print(f"📖 LECTURA: API Key | 📝 ESCRITURA: OAuth")
         print(f"⏰ Buscando comentarios de las últimas {self.hace_horas} horas")
         print(f"🎯 MÁXIMO {self.max_respuestas} respuestas (MODO PRUEBA)")
         print(f"📺 Canal: {self.channel_id}")
@@ -564,7 +589,7 @@ class ProsperidadDivinaBotDebug:
                 # Generar respuesta personalizada
                 respuesta = self.generar_respuesta_ia(comentario, tipo)
                 
-                # Enviar respuesta REAL
+                # Enviar respuesta REAL usando OAuth
                 if self.responder_comentario(comentario['id'], respuesta, comentario):
                     self.stats['respuestas_exitosas'] += 1
                     total_respuestas += 1
@@ -580,36 +605,40 @@ class ProsperidadDivinaBotDebug:
                     
                 print("-"*80)
         
-        print(f"\n🎉 PROCESAMIENTO DEBUG COMPLETADO")
+        print(f"\n🎉 PROCESAMIENTO HÍBRIDO COMPLETADO")
         print(f"📊 {total_respuestas} respuestas enviadas exitosamente")
     
-    def generar_reporte_debug(self):
-        """📊 Generar reporte detallado del debug"""
+    def generar_reporte_hibrido(self):
+        """📊 Generar reporte detallado del modo híbrido"""
         ahora = datetime.now()
         
         reporte = {
             'timestamp': ahora.isoformat(),
             'fecha_legible': ahora.strftime('%d de %B %Y - %H:%M'),
             'channel_id': self.channel_id,
-            'modo': 'DEBUG_10_COMENTARIOS_48H',
+            'modo': 'HIBRIDO_10_COMENTARIOS_48H',
+            'metodo': 'LECTURA_API_KEY_ESCRITURA_OAUTH',
             'stats': self.stats,
             'config': {
                 'horas_buscadas': self.hace_horas,
                 'max_respuestas': self.max_respuestas,
-                'tipo': 'RESPUESTAS_REALES_OAUTH_DEBUG'
+                'tipo': 'MODO_HIBRIDO'
             },
             'log_detallado': self.log_detallado
         }
         
         # Guardar reporte JSON
-        with open('reporte_debug_ministerio.json', 'w', encoding='utf-8') as f:
+        with open('reporte_hibrido_ministerio.json', 'w', encoding='utf-8') as f:
             json.dump(reporte, f, indent=2, ensure_ascii=False)
         
         # Reporte legible
-        print(f"\n📋 REPORTE DETALLADO DE DEBUG")
+        print(f"\n📋 REPORTE DETALLADO - MODO HÍBRIDO")
         print(f"🕐 {reporte['fecha_legible']}")
         print(f"📺 Canal: {self.channel_id}")
-        print(f"🧪 Modo: DEBUG (máximo {self.max_respuestas} respuestas, {self.hace_horas}h)")
+        print(f"🔄 Modo: HÍBRIDO (API Key + OAuth)")
+        print(f"   📖 Lectura: YouTube API Key")
+        print(f"   📝 Escritura: YouTube OAuth")
+        print(f"🧪 Configuración: {self.max_respuestas} respuestas máximo, {self.hace_horas}h búsqueda")
         print(f"\n📊 ESTADÍSTICAS FINALES:")
         print(f"   💬 Comentarios procesados: {self.stats['comentarios_procesados']}")
         print(f"   ✅ Respuestas enviadas: {self.stats['respuestas_exitosas']}")
@@ -620,39 +649,38 @@ class ProsperidadDivinaBotDebug:
         print(f"   📝 General: {self.stats['general']}")
         print(f"   ❌ Errores: {self.stats['errores']}")
         
-        print(f"\n📁 Reporte completo guardado en: reporte_debug_ministerio.json")
-        print(f"🔍 Revisa el log_detallado para ver cada paso ejecutado")
+        print(f"\n📁 Reporte completo guardado en: reporte_hibrido_ministerio.json")
         
         return reporte
 
 def main():
-    """🚀 Función principal del bot - MODO DEBUG"""
+    """🚀 Función principal del bot - MODO HÍBRIDO"""
     try:
-        print("🙏 BOT PROSPERIDAD DIVINA - MODO DEBUG COMPLETO")
+        print("🙏 BOT PROSPERIDAD DIVINA - MODO HÍBRIDO")
         print("="*80)
-        print("🧪 CONFIGURACIÓN DEBUG ESPECIAL:")
+        print("🔄 CONFIGURACIÓN HÍBRIDA ESPECIAL:")
         print("   📊 Máximo 10 respuestas")
         print("   ⏰ Búsqueda en últimas 48 horas")
-        print("   🔍 Logging extensivo para cada paso")
-        print("   📝 Manejo de errores detallado")
-        print("   🔥 Respuestas REALES con OAuth")
+        print("   📖 LECTURA: YouTube API Key (sin permisos especiales)")
+        print("   📝 ESCRITURA: YouTube OAuth (permisos de modificación)")
+        print("   🔥 Respuestas REALES automáticas")
         print("="*80)
         
         # Inicializar bot
-        bot = ProsperidadDivinaBotDebug()
+        bot = ProsperidadDivinaBotHibrido()
         
         # Procesar comentarios
         bot.procesar_comentarios()
         
         # Generar reporte
-        bot.generar_reporte_debug()
+        bot.generar_reporte_hibrido()
         
-        print(f"\n✨ DEBUG COMPLETADO CON ÉXITO")
-        print(f"🔍 Revisa el reporte detallado para analizar todos los pasos")
-        print(f"👑 Prosperidad Divina - Ministerio Digital Debug")
+        print(f"\n✨ MODO HÍBRIDO COMPLETADO CON ÉXITO")
+        print(f"🔍 Lectura con API Key + Escritura con OAuth")
+        print(f"👑 Prosperidad Divina - Ministerio Digital Híbrido")
         
     except Exception as e:
-        print(f"\n❌ ERROR CRÍTICO EN DEBUG: {e}")
+        print(f"\n❌ ERROR CRÍTICO EN MODO HÍBRIDO: {e}")
         print(f"📊 Tipo: {type(e).__name__}")
         print(f"📄 Traceback completo:")
         print(traceback.format_exc())
@@ -663,10 +691,10 @@ def main():
             'error': str(e),
             'tipo': type(e).__name__,
             'traceback': traceback.format_exc(),
-            'modo': 'DEBUG'
+            'modo': 'HIBRIDO'
         }
         
-        with open('error_debug.json', 'w', encoding='utf-8') as f:
+        with open('error_hibrido.json', 'w', encoding='utf-8') as f:
             json.dump(error_info, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
