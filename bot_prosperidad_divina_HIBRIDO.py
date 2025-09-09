@@ -676,8 +676,9 @@ def main():
         bot.generar_reporte_hibrido()
         
         print(f"\n✨ MODO HÍBRIDO COMPLETADO CON ÉXITO")
-        print(f"🔍 Lectura con API Key + Escritura con OAuth")
+        print(f"🔍 Lectura con API Key + Escritura con OAuth específico")
         print(f"👑 Prosperidad Divina - Ministerio Digital Híbrido")
+        print(f"🛡️ OAuth de miniaturas protegido y funcionando independientemente")
         
     except Exception as e:
         print(f"\n❌ ERROR CRÍTICO EN MODO HÍBRIDO: {e}")
