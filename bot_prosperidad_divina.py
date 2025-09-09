@@ -385,6 +385,11 @@ Respuesta:"""
                     "Que encuentres paz en tu corazón 💙✨🙏",
                     "Luz y comprensión para tu camino 🌟🕊️🙏"
                 ],
+                'gratitud': [
+                    "¡Hermoso corazón agradecido! Que las bendiciones se multipliquen ✨🙏",
+                    "Tu gratitud atrae más abundancia divina 🌟💫🙏",
+                    "Que tu fe y gratitud sigan creciendo 💙✨🙏"
+                ],
                 'general': [
                     "Que la luz divina te acompañe siempre ✨🙏",
                     "Bendiciones infinitas para tu alma 💫🙏",
