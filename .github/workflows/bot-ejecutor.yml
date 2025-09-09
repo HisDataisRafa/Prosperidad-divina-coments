@@ -1,80 +1,186 @@
-name: 🙏 Bot Prosperidad Divina - Comentarios Automáticos
+# Workflow mejorado con persistencia real de memoria de conversaciones
+name: 🙏 Bot Prosperidad Divina - Ejecutor con Memoria Persistente
 
+# Cuándo ejecutar
 on:
+  # Cada hora en punto
   schedule:
-    - cron: '0 */4 * * *'  # Cada 4 horas
-  workflow_dispatch: # Ejecución manual
+    - cron: '0 * * * *'
+  
+  # Ejecución manual desde GitHub
+  workflow_dispatch:
+
+# Permisos necesarios para que el bot pueda hacer commits
+permissions:
+  contents: write
+  actions: read
 
 jobs:
   bendecir-comentarios:
     runs-on: ubuntu-latest
     
     steps:
-    - name: 📥 Descargar repositorio
-      uses: actions/checkout@v3
+    # Paso 1: Descargar código y archivos de memoria existentes
+    - name: 📥 Descargar repositorio y memoria existente
+      uses: actions/checkout@v4
       with:
+        # Importante: obtener todo el historial para poder hacer push
+        fetch-depth: 0
+        # Usar token personal para permitir commits
         token: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: 🐍 Configurar Python
+    # Paso 2: Configurar Python
+    - name: 🐍 Configurar Python 3.9
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
         
-    - name: 📦 Instalar dependencias
+    # Paso 3: Instalar dependencias
+    - name: 📦 Instalar librerías necesarias
       run: |
         pip install google-generativeai google-auth google-auth-oauthlib google-api-python-client python-dateutil
         
-    - name: 🔍 Debug - Verificar variables
+    # Paso 4: Verificar archivos de memoria existentes
+    - name: 🔍 Verificar estado de archivos de memoria
       run: |
-        echo "GEMINI_API_KEY existe: $([ -n "$GEMINI_API_KEY" ] && echo "SI" || echo "NO")"
-        echo "YOUTUBE_CREDENTIALS_COMMENTS existe: $([ -n "$YOUTUBE_CREDENTIALS_COMMENTS" ] && echo "SI" || echo "NO")"
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
-        
-    - name: 👑 Ejecutar Bot Prosperidad Divina
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
-      run: |
-        python bot_prosperidad_divina_HIBRIDO.py
-        
-    - name: 📊 Crear reporte básico
-      run: |
-        echo "# 👑 Reporte Prosperidad Divina - $(date +'%d de %B %H:%M')" > REPORTE_BENDICIONES.md
-        echo "" >> REPORTE_BENDICIONES.md
-        echo "## ✨ Ministerio Digital Ejecutado:" >> REPORTE_BENDICIONES.md
-        echo "- ⏰ Fecha: $(date +'%Y-%m-%d %H:%M:%S')" >> REPORTE_BENDICIONES.md
-        echo "- 🤖 Bot ejecutado automáticamente" >> REPORTE_BENDICIONES.md
-        echo "- 📊 Estadísticas detalladas en archivos JSON" >> REPORTE_BENDICIONES.md
-        echo "" >> REPORTE_BENDICIONES.md
-        echo "---" >> REPORTE_BENDICIONES.md
-        echo "*🔄 Próxima ejecución automática en 4 horas*" >> REPORTE_BENDICIONES.md
-        echo "*👑 Prosperidad Divina - Ministerio Digital Automático*" >> REPORTE_BENDICIONES.md
-        
-    - name: 💾 Guardar resultados
-      run: |
-        git config --local user.email "prosperidad@divina.ministerio"
-        git config --local user.name "Bot Prosperidad Divina"
-        git add .
-        
-        if ! git diff --staged --quiet; then
-          git commit -m "👑 Bendiciones Automáticas $(date +'%d/%m/%Y %H:%M') - Ministerio digital activo ✨"
-          git push
-          echo "✅ Bendiciones registradas en el repositorio"
+        echo "📂 Contenido actual del directorio:"
+        ls -la
+        echo ""
+        if [ -f "comentarios_respondidos.txt" ]; then
+          echo "✅ Archivo de comentarios respondidos encontrado:"
+          echo "   - Líneas: $(wc -l < comentarios_respondidos.txt)"
         else
-          echo "ℹ️ No hay nuevas bendiciones para registrar"
+          echo "⚠️  Archivo comentarios_respondidos.txt no existe (se creará)"
         fi
         
-    - name: 🎉 Confirmación de éxito
+        if [ -f "memoria_conversaciones.json" ]; then
+          echo "✅ Archivo de memoria de conversaciones encontrado:"
+          echo "   - Tamaño: $(du -h memoria_conversaciones.json | cut -f1)"
+        else
+          echo "⚠️  Archivo memoria_conversaciones.json no existe (se creará)"
+        fi
+
+    # Paso 5: Ejecutar el bot con contexto persistente
+    - name: 👑 Ejecutar Bot con Memoria Persistente
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
+      run: |
+        echo "🚀 Iniciando Bot Prosperidad Divina con contexto persistente..."
+        python bot_prosperidad_divina.py
+        echo "✅ Ejecución del bot completada"
+
+    # Paso 6: Verificar qué archivos se crearon o modificaron
+    - name: 🔍 Verificar cambios generados
+      run: |
+        echo "📊 Estado después de la ejecución:"
+        echo ""
+        
+        if [ -f "comentarios_respondidos.txt" ]; then
+          echo "✅ comentarios_respondidos.txt:"
+          echo "   - Líneas: $(wc -l < comentarios_respondidos.txt)"
+        fi
+        
+        if [ -f "memoria_conversaciones.json" ]; then
+          echo "✅ memoria_conversaciones.json:"
+          echo "   - Tamaño: $(du -h memoria_conversaciones.json | cut -f1)"
+          echo "   - Usuarios en memoria: $(grep -o '"autor_id"' memoria_conversaciones.json | wc -l)"
+        fi
+        
+        echo ""
+        echo "📋 Reportes generados:"
+        ls -la reporte_*.json 2>/dev/null || echo "   (No se generaron reportes en esta ejecución)"
+        
+        echo ""
+        echo "🔄 Cambios en Git:"
+        git status --porcelain
+
+    # Paso 7: Configurar Git y hacer commit de todos los cambios
+    - name: 💾 Guardar memoria y reportes en el repositorio
+      run: |
+        # Configurar Git
+        git config --local user.email "action@github.com"
+        git config --local user.name "Bot Prosperidad Divina"
+        
+        # Añadir todos los archivos importantes
+        git add comentarios_respondidos.txt memoria_conversaciones.json reporte_*.json
+        
+        # Verificar si hay cambios para commitear
+        if ! git diff --staged --quiet; then
+          # Crear commit con información detallada
+          FECHA=$(date +'%d/%m/%Y %H:%M')
+          COMENTARIOS_TOTAL=$(wc -l < comentarios_respondidos.txt 2>/dev/null || echo "0")
+          
+          if [ -f "memoria_conversaciones.json" ]; then
+            USUARIOS_MEMORIA=$(grep -c '"autor_id"' memoria_conversaciones.json 2>/dev/null || echo "0")
+          else
+            USUARIOS_MEMORIA="0"
+          fi
+          
+          git commit -m "🧠 Memoria Actualizada - $FECHA
+
+🔢 Estadísticas:
+  • Comentarios respondidos: $COMENTARIOS_TOTAL
+  • Usuarios con historial: $USUARIOS_MEMORIA
+  
+✨ Bendiciones automáticas completadas"
+          
+          # Hacer push
+          git push
+          echo "✅ Memoria y reportes guardados exitosamente"
+          echo "📈 Total comentarios en BD: $COMENTARIOS_TOTAL"
+          echo "🧠 Total usuarios con historial: $USUARIOS_MEMORIA"
+          
+        else
+          echo "ℹ️  No hubo cambios en esta ejecución (no se encontraron comentarios nuevos para responder)"
+        fi
+
+    # Paso 8: Limpieza opcional de reportes antiguos (mantener solo últimos 10)
+    - name: 🧹 Limpieza de reportes antiguos
+      run: |
+        echo "🗂️  Limpiando reportes antiguos (manteniendo últimos 10)..."
+        REPORTES_COUNT=$(ls reporte_*.json 2>/dev/null | wc -l)
+        
+        if [ "$REPORTES_COUNT" -gt 10 ]; then
+          echo "   📊 Reportes actuales: $REPORTES_COUNT"
+          # Eliminar reportes más antiguos, manteniendo solo los 10 más recientes
+          ls -t reporte_*.json | tail -n +11 | xargs rm -f
+          
+          # Si se eliminaron reportes, commitear la limpieza
+          git add . 
+          if ! git diff --staged --quiet; then
+            git commit -m "🧹 Limpieza automática: reportes antiguos eliminados"
+            git push
+            echo "   ✅ Reportes antiguos eliminados y cambios guardados"
+          fi
+        else
+          echo "   ✅ Solo $REPORTES_COUNT reportes, no se requiere limpieza"
+        fi
+        
+    # Paso 9: Mensaje de éxito
+    - name: 🎉 Confirmación final
       if: success()
       run: |
-        echo "✅ ¡Ronda de bendiciones completada!"
-        echo "👑 Prosperidad Divina expandiéndose automáticamente"
-        echo "🔄 Nos vemos en 4 horas para más ministerio"
+        echo ""
+        echo "🌟 ¡CICLO DE BENDICIONES COMPLETADO EXITOSAMENTE! 🌟"
+        echo ""
+        echo "📅 Próxima ejecución programada: En 1 hora"
+        echo "🔄 El contexto de usuarios se ha mantenido entre ejecuciones"
+        echo "💫 Las bendiciones continúan fluyendo..."
+        echo ""
         
+    # Paso 10: Manejo de errores
     - name: 🚨 Manejo de errores
       if: failure()
       run: |
-        echo "❌ Hubo un problema en el ministerio digital"
-        echo "🙏 El ministerio continuará en la próxima ejecución"
+        echo ""
+        echo "❌ HUBO UN PROBLEMA EN ESTA EJECUCIÓN"
+        echo ""
+        echo "🔍 Posibles causas:"
+        echo "   • Error en las APIs (YouTube/Gemini)"
+        echo "   • Problemas de conectividad"
+        echo "   • Límites de cuota excedidos"
+        echo ""
+        echo "🔄 El bot lo intentará automáticamente en la próxima ejecución"
+        echo "💾 La memoria existente se mantiene intacta"
+        echo ""
