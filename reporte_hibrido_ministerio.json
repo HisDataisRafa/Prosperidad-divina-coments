@@ -1,0 +1,2062 @@
+{
+  "timestamp": "2025-09-09T01:13:55.971046",
+  "fecha_legible": "09 de September 2025 - 01:13",
+  "channel_id": "UCgRg_G9C4-_AHBETHcc7cQQ",
+  "modo": "HIBRIDO_10_COMENTARIOS_48H",
+  "metodo": "LECTURA_API_KEY_ESCRITURA_OAUTH",
+  "stats": {
+    "respuestas_exitosas": 0,
+    "comentarios_procesados": 217,
+    "errores": 217,
+    "peticiones_oracion": 28,
+    "testimonios": 9,
+    "abundancia_respuestas": 0,
+    "saludos": 19,
+    "general": 155
+  },
+  "config": {
+    "horas_buscadas": 48,
+    "max_respuestas": 10,
+    "tipo": "MODO_HIBRIDO"
+  },
+  "log_detallado": [
+    {
+      "paso": "verificacion_canal",
+      "resultado": "exitoso",
+      "canal": "Prosperidad Divina",
+      "suscriptores": "4200"
+    },
+    {
+      "paso": "obtencion_videos",
+      "resultado": "exitoso",
+      "cantidad": 8,
+      "videos": [
+        "❤️😢 TU MADRE QUE FALLECIÓ HA ESTADO SUPLICANDO DEC",
+        "EL ARCÁNGEL MIGUEL DICE, IGNÓRAME Y LLORARÁS PARA ",
+        "URGENTE HOY: DIOS DICE “TIENES POCAS HORAS… la LLA",
+        "DIOS TE ADVIERTE HOY: Alguien que partió te avisa ",
+        "ARCÁNGEL MIGUEL DICE TU SER QUERIDO TE DEJÓ UNA HE",
+        "HOY: JESÚS DICE: TU SER QUERIDO EN EL CIELO QUIERE",
+        "URGENTE HOY: DIOS TE PIDE ESCUCHAR ESTO — ESA PERS",
+        "HOY EL ARCÁNGEL MIGUEL DICE: HE ESTADO ESPERANDO P"
+      ]
+    },
+    {
+      "paso": "comentarios_ITn6gPuzQXE",
+      "video": "❤️😢 TU MADRE QUE FALLECIÓ HA ESTADO SUPLICANDO DEC",
+      "comentarios_totales": 47,
+      "comentarios_recientes": 47,
+      "fecha_limite": "2025-09-07T01:13:36.914505+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ElianaPizarro-u3q",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.337235"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ElidaLuisa-u4s",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.400089"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ElidaLuisa-u4s",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.560761"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@RobertoHerrera-rt9fk",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.621504"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MarthaDelgado-j9s6b",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.777630"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nancyblanco255",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.887973"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MarthaDelgado-j9s6b",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:37.970689"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nancyblanco255",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.093316"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@susanacontreraspuertas2491",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.159180"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nancyblanco255",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.281064"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@susanacontreraspuertas2491",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.345765"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nancyblanco255",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.498435"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nancyblanco255",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.570040"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@susanacontreraspuertas2491",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.685175"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DalmaAndrade-u7k",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.758178"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JuanQuijada-l4r",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.874281"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JuanQuijada-l4r",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:38.974250"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DalmaAndrade-u7k",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.060159"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@jacquelinedalmaumartinez4138",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.170749"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdaZuñiga-y6g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.268598"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MayelaMLuna",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.354159"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@RosaGomez-x3p1r",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.532250"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MayelaMLuna",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.604623"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Jorge-x2t3z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.737837"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.823669"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@aureafernandezlopez",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:39.925136"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.026062"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.111193"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.286447"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.348513"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.471773"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.534351"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.690856"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.803625"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@angelasanmartin-r3l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:40.952712"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@angelasanmartin-r3l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.012156"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@angelasanmartin-r3l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.148485"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@angelasanmartin-r3l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.217709"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MiguelOmarOrtegaMiranda-w4d",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.386790"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MiguelOmarOrtegaMiranda-w4d",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.444608"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DeysiColumbieMolina-cn2iv",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.570578"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@EliLobos-h4i",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.641588"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@EliLobos-h4i",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.810653"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@EliLobos-h4i",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.880349"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@EliLobos-h4i",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:41.996723"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@EliLobos-h4i",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.077562"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@EliLobos-h4i",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.184938"
+    },
+    {
+      "paso": "comentarios_MGiqtcoRA5w",
+      "video": "EL ARCÁNGEL MIGUEL DICE, IGNÓRAME Y LLORARÁS PARA ",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 50,
+      "fecha_limite": "2025-09-07T01:13:42.184960+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@PilarMartinez-rg9vv",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.431743"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SilviaQuinteros-l3t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.511687"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@robertosoto1370",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.615107"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MauricioAvendaño-y1g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.716051"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@BertoGiraldoGarcia",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.811653"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:42.907460"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.018838"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.122820"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.203859"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.272425"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.327680"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.386365"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.455237"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.570124"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.654520"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.710461"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.775382"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.840473"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:43.898866"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.008525"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nestorsantosmirelesvillarr2697",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.066828"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nestorsantosmirelesvillarr2697",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.180675"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@zoilacolmenarez8614",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.292348"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JoséFranciscoSalazarbravo",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.350696"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@zoilacolmenarez8614",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.410272"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JoséFranciscoSalazarbravo",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.476412"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.542116"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@NICEFFF-d2t7l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.603260"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.713442"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@NICEFFF-d2t7l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.783939"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@NICEFFF-d2t7l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.842457"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@NICEFFF-d2t7l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.901529"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@NICEFFF-d2t7l",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:44.960871"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.029969"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.095941"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.154448"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DanielRodriguez-t8z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.213764"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@CarmenRamirez-i6z3u",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.275536"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@rocioruano6631",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.345806"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@rocioruano6631",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.404665"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@rocioruano6631",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.466298"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@emipereira2532",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.538898"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@emipereira2532",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.593415"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@emipereira2532",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.651687"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LupitaGutierrez-x8f",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.710735"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DeboraPerezRey",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.778922"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@NaniMonteroscasa",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.837872"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Lexeg7899-w4x",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.908949"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@FlorGuzman-y1e",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:45.967667"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@FlorGuzman-y1e",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.080950"
+    },
+    {
+      "paso": "comentarios_g9D8M8SNtBM",
+      "video": "URGENTE HOY: DIOS DICE “TIENES POCAS HORAS… la LLA",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 50,
+      "fecha_limite": "2025-09-07T01:13:46.080972+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LucilaGomez-p6d",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.289719"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@GloriaDiaz-wv1dq",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.406379"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@GloriaDiaz-wv1dq",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.470573"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nurianmeryramirezjimenez2871",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.528326"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nurianmeryramirezjimenez2871",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.584107"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nurianmeryramirezjimenez2871",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.642231"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.747367"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.858086"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.915705"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:46.970895"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.041811"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.148783"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.212317"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.313967"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.372774"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.439012"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.496503"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdalenaRojaspaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.550704"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@hernandopalomo2189",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.603294"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@hernandopalomo2189",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.669701"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@hernandopalomo2189",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.735176"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@beatrizbarilla452",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.787870"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@beatrizbarilla452",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.859429"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@lucellycorvil2964",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.913411"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@lucellycorvil2964",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:47.985337"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mirosoplin",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.042449"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@juliserena",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.114970"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mirosoplin",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.185061"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mirosoplin",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.239439"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mirosoplin",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.300301"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ceciliadelgado3968",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.355141"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DavidRamiro-t9x",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.423594"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SantiagoPauccar",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.485737"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@madeluzhernandez6667",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.549647"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@kennethebanks6827",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.612837"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@luisaparicio9982",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.669759"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@josedanielbenjaminhernande4657",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.725551"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@AnaMariaBustamante-ej4cr",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.832918"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@SoniaDiaz-lj6zd",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.903473"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@aryfigueroa1735",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:48.966482"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@aryfigueroa1735",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.025120"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@aliciacoiran457",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.078664"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@aliciacoiran457",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.132176"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@aliciacoiran457",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.188709"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@BlancaTulia-u7j",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.243921"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@BlancaTulia-u7j",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.308346"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@BlancaTulia-u7j",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.417315"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Adelabolanos1479",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.525535"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LunaNancygraciela",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.582214"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@FlorGuzman-y1e",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:49.637794"
+    },
+    {
+      "paso": "comentarios_B85U8ZnhjDI",
+      "video": "DIOS TE ADVIERTE HOY: Alguien que partió te avisa ",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 6,
+      "fecha_limite": "2025-09-07T01:13:49.637810+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@domingohernandes-p9k",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.031531"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mariocarlosgabrielli4255",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.085591"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@AngelamDia-l8p",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.150430"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@juancarlosverhook9230",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.216793"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@luisaparicio9982",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.324388"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@danteguevara8492",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.379596"
+    },
+    {
+      "paso": "comentarios_qgkqOgrzOew",
+      "video": "ARCÁNGEL MIGUEL DICE TU SER QUERIDO TE DEJÓ UNA HE",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 2,
+      "fecha_limite": "2025-09-07T01:13:50.379614+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@juliserena",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.589378"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Patricia_.0716",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.648251"
+    },
+    {
+      "paso": "comentarios_G5GnNwWHTTk",
+      "video": "HOY: JESÚS DICE: TU SER QUERIDO EN EL CIELO QUIERE",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 11,
+      "fecha_limite": "2025-09-07T01:13:50.648271+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LucilaGomez-p6d",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.900486"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LucilaGomez-p6d",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:50.953966"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@YudithVilchez-j7z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.103471"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@YudithVilchez-j7z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.210751"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JustinaCastel-y6x",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.286256"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@juliserena",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.388257"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@CarmenCabalero-k1c",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.454548"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@CarmenCabalero-k1c",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.522186"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@CarmenCabalero-k1c",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.663067"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@CarmenCabalero-k1c",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.789301"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@luisaparicio9982",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:51.900432"
+    },
+    {
+      "paso": "comentarios_TIUTfuNBCxs",
+      "video": "URGENTE HOY: DIOS TE PIDE ESCUCHAR ESTO — ESA PERS",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 1,
+      "fecha_limite": "2025-09-07T01:13:51.900453+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LediaDocazaldelaPaz",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.143240"
+    },
+    {
+      "paso": "comentarios_pGyRR0K5Ijs",
+      "video": "HOY EL ARCÁNGEL MIGUEL DICE: HE ESTADO ESPERANDO P",
+      "comentarios_totales": 50,
+      "comentarios_recientes": 50,
+      "fecha_limite": "2025-09-07T01:13:52.143262+00:00",
+      "metodo": "API_KEY_LECTURA"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mariasantini4781",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.411482"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@peterlopez1962",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.544205"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@peterlopez1962",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.656131"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@peterlopez1962",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.733457"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@peterlopez1962",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.868265"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JoseJorgeGomez",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.926261"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@JoseJorgeGomez",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:52.980375"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.040564"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.109636"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ZtSuper-x1b3g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.213032"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@AngelamDia-l8p",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.270254"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@dioniciogonzalez770",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.337342"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@dioniciogonzalez770",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.402818"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@DalsyBorrero",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.473221"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@olgamarulanda1676",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.527248"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ClaribelReyes-fc3ic",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.585259"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@RosacatalinaLeiva-m2b",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.643406"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@RosacatalinaLeiva-m2b",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.697333"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@gloriamarianarvaezpascuas6759",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.756382"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@miladicedeno7297",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.816452"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@AnaCeliaSanchezCorrea-x8v",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.887955"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@BlancaPacheco-r7q",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:53.994504"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.053766"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.163934"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.219178"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.275577"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.333510"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@MagdaZuñiga-y6g",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.391598"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.502489"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresaMontano-v1t",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.560929"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nelsonbasaure",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.617920"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nelsonbasaure",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.685593"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@LucilaGomez-p6d",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.741032"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nelsonbasaure",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.811599"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nelsonbasaure",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.870455"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@nelsonbasaure",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.936580"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@gloriamazza3612",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:54.994412"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@gloriamazza3612",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.054872"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresitaGutierrez-w2z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.163658"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresitaGutierrez-w2z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.228138"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@ceciliadelgado3968",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.286057"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresitaGutierrez-w2z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.388269"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@RaquelOrtega-d3s",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.496446"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresitaGutierrez-w2z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.551756"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@TeresitaGutierrez-w2z",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.610550"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@gracielacatalinagodoydedom2144",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.678237"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Ennis-i4s",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.752753"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Ennis-i4s",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.807706"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@Hector-y1c2m",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.861142"
+    },
+    {
+      "paso": "error_respuesta",
+      "autor": "@mariaherrero7022",
+      "error_tipo": "HttpError",
+      "error_codigo": 403,
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n",
+      "metodo": "OAUTH_ESCRITURA",
+      "timestamp": "2025-09-09T01:13:55.971028"
+    }
+  ]
+}
