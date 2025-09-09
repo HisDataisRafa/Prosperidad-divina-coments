@@ -102,6 +102,13 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "Bot Prosperidad Divina"
         
+        # 🔧 SOLUCIÓN AL PROBLEMA DE GIT: Pull antes de cualquier operación
+        echo "🔄 Sincronizando con repositorio remoto..."
+        git pull --rebase origin main || {
+          echo "⚠️  Problema con pull, intentando merge..."
+          git pull --no-rebase origin main || echo "⚠️  Pull falló, continuando..."
+        }
+        
         # Añadir todos los archivos importantes
         git add comentarios_respondidos.txt memoria_conversaciones.json reporte_*.json
         
@@ -119,8 +126,17 @@ jobs:
           
           git commit -m "🧠 Memoria Actualizada - $FECHA | 📊 Comentarios: $COMENTARIOS_TOTAL | 👥 Usuarios: $USUARIOS_MEMORIA | ✨ Bendiciones completadas"
           
-          # Hacer push
-          git push
+          # 🔧 PUSH CON RETRY Y FORCE SI ES NECESARIO
+          echo "📤 Intentando push..."
+          if ! git push origin main; then
+            echo "⚠️  Push normal falló, intentando pull + push..."
+            git pull --rebase origin main || git pull --no-rebase origin main
+            git push origin main || {
+              echo "⚠️  Push con rebase falló, usando force push (CUIDADO)..."
+              git push --force-with-lease origin main
+            }
+          fi
+          
           echo "✅ Memoria y reportes guardados exitosamente"
           echo "📈 Total comentarios en BD: $COMENTARIOS_TOTAL"
           echo "🧠 Total usuarios con historial: $USUARIOS_MEMORIA"
@@ -144,7 +160,7 @@ jobs:
           git add . 
           if ! git diff --staged --quiet; then
             git commit -m "🧹 Limpieza automática: reportes antiguos eliminados"
-            git push
+            git push origin main || git push --force-with-lease origin main
             echo "   ✅ Reportes antiguos eliminados y cambios guardados"
           fi
         else
@@ -174,6 +190,7 @@ jobs:
         echo "   • Error en las APIs (YouTube/Gemini)"
         echo "   • Problemas de conectividad"
         echo "   • Límites de cuota excedidos"
+        echo "   • Conflictos de Git (ahora manejados automáticamente)"
         echo ""
         echo "🔄 El bot lo intentará automáticamente en la próxima ejecución"
         echo "💾 La memoria existente se mantiene intacta"
