@@ -1,0 +1,28 @@
+{
+  "info_ejecucion": {
+    "id": "20250910_082522",
+    "inicio": "2025-09-10T08:25:37.862395",
+    "modo": "CORDIAL_Y_POSITIVO_V3",
+    "modelo": "gemini-2.5-flash-lite",
+    "max_comentarios": 17,
+    "fin": "2025-09-10T08:30:14.968704",
+    "duracion_minutos": 4.62
+  },
+  "resumen": {
+    "comentarios_procesados": 21,
+    "respuestas_exitosas": 17,
+    "respuestas_ia_exitosas": 17,
+    "errores_gemini": 0,
+    "errores_youtube": 0,
+    "comentarios_filtrados": 4
+  },
+  "tipos_procesados": {
+    "saludo": 4,
+    "general": 6,
+    "gratitud": 6,
+    "dolor_confusion": 1
+  },
+  "acciones_de_moderacion": {
+    "crisis_ignorada": 0
+  }
+}
