@@ -1,297 +1,93 @@
-# Workflow optimizado para 800 RPD con memoria persistente
-name: 🎯 Bot Prosperidad Divina - 800 RPD Optimizado
+name: Generador de Horarios Aleatorios
 
-# Configuración para 800 RPD
 on:
-  # Cada 30 minutos para lograr 800 RPD
   schedule:
-    - cron: '0,30 * * * *'  # 48 ejecuciones/día × 17 comentarios = 816 RPD
-  
-  # Ejecución manual
+    - cron: '0 5 * * *'  # 5:00 AM diariamente
   workflow_dispatch:
 
-# Permisos necesarios
 permissions:
   contents: write
   actions: read
 
 jobs:
-  bendecir-comentarios-800rpd:
+  generar-horarios-aleatorios:
     runs-on: ubuntu-latest
-    
     steps:
-    # Paso 1: Descargar repositorio y memoria
-    - name: 📥 Descargar repositorio y memoria existente
+    - name: Checkout
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
-        
-    # Paso 2: Configurar Python
-    - name: 🐍 Configurar Python 3.9
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        
-    # Paso 3: Instalar dependencias
-    - name: 📦 Instalar librerías necesarias
+      
+    - name: Generar 20 horarios aleatorios para hoy
       run: |
-        pip install google-generativeai google-auth google-auth-oauthlib google-api-python-client python-dateutil
+        echo "Generando horarios aleatorios para $(date +%Y-%m-%d)"
         
-    # Paso 4: Verificar memoria existente
-    - name: 🔍 Verificar estado de archivos de memoria
+        # 20 horas distribuidas a lo largo del día
+        HORAS=(6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 0 1)
+        
+        # Crear bot-ejecutor.yml directamente
+        cat > bot-ejecutor.yml << 'EOF'
+        name: Bot Prosperidad Divina - Ejecución Aleatoria
+        
+        on:
+          schedule:
+        EOF
+        
+        # Generar horarios con minutos aleatorios
+        for hora in "${HORAS[@]}"; do
+          minuto=$((1 + RANDOM % 59))
+          echo "    - cron: '${minuto} ${hora} * * *'" >> bot-ejecutor.yml
+          echo "  Generado: ${hora}:$(printf "%02d" $minuto)"
+        done
+        
+        # Completar bot-ejecutor.yml
+        cat >> bot-ejecutor.yml << 'EOF'
+          workflow_dispatch:
+        
+        permissions:
+          contents: write
+          actions: read
+        
+        jobs:
+          ejecutar-bot:
+            runs-on: ubuntu-latest
+            steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              
+            - name: Setup Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+                
+            - name: Install dependencies
+              run: |
+                pip install google-generativeai google-auth google-auth-oauthlib google-api-python-client python-dateutil
+                
+            - name: Ejecutar Bot (5 comentarios exactos)
+              env:
+                GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+                YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
+              run: |
+                echo "Ejecutando bot: 5 comentarios exactos"
+                echo "Horario aleatorio: $(date +'%H:%M')"
+                python bot_prosperidad_divina.py
+                
+            - name: Guardar cambios
+              run: |
+                git config --local user.email "action@github.com"
+                git config --local user.name "Bot 6000pts"
+                git add .
+                if ! git diff --staged --quiet; then
+                  git commit -m "6000pts - $(date +'%d/%m %H:%M') - 5 comentarios"
+                  git push origin main || git push --force-with-lease origin main
+                fi
+        EOF
+        
+        echo "bot-ejecutor.yml creado con 20 horarios aleatorios"
+        
+    - name: Commitear bot-ejecutor.yml
       run: |
-        echo "📂 ESTADO ACTUAL - CONFIGURACIÓN 800 RPD:"
-        ls -la
-        echo ""
-        
-        if [ -f "comentarios_respondidos.txt" ]; then
-          LINEAS=$(wc -l < comentarios_respondidos.txt)
-          echo "✅ Comentarios respondidos: $LINEAS"
-          echo "   - Últimas 3 líneas:"
-          tail -3 comentarios_respondidos.txt | sed 's/^/     /'
-        else
-          echo "⚠️  comentarios_respondidos.txt no existe (se creará)"
-        fi
-        
-        if [ -f "memoria_conversaciones.json" ]; then
-          USUARIOS=$(grep -c '"autor_id"' memoria_conversaciones.json 2>/dev/null || echo "0")
-          echo "✅ Memoria conversaciones:"
-          echo "   - Tamaño: $(du -h memoria_conversaciones.json | cut -f1)"
-          echo "   - Usuarios: $USUARIOS"
-        else
-          echo "⚠️  memoria_conversaciones.json no existe (se creará)"
-        fi
-        
-        echo ""
-        echo "🎯 CONFIGURACIÓN 800 RPD:"
-        echo "   - Ejecución: Cada 30 minutos (48/día)"
-        echo "   - Comentarios por ejecución: 17"
-        echo "   - RPD objetivo: 816"
-        echo "   - Modelo: Gemini 2.5 Flash-Lite (1,000 RPD)"
-
-    # Paso 5: Ejecutar bot 800 RPD
-    - name: 🎯 Ejecutar Bot 800 RPD Optimizado
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        YOUTUBE_CREDENTIALS_COMMENTS: ${{ secrets.YOUTUBE_CREDENTIALS_COMMENTS }}
-      run: |
-        echo "🚀 INICIANDO BOT 800 RPD..."
-        echo "⏰ Inicio: $(date +'%Y-%m-%d %H:%M:%S UTC')"
-        echo "🎯 Objetivo esta ejecución: 17 comentarios"
-        echo ""
-        
-        python bot_prosperidad_divina.py
-        
-        echo ""
-        echo "✅ Ejecución 800 RPD completada"
-        echo "⏰ Fin: $(date +'%Y-%m-%d %H:%M:%S UTC')"
-
-    # Paso 6: Verificar resultados 800 RPD
-    - name: 🔍 Verificar resultados 800 RPD
-      run: |
-        echo "📊 RESULTADOS DE ESTA EJECUCIÓN 800 RPD:"
-        echo ""
-        
-        if [ -f "comentarios_respondidos.txt" ]; then
-          LINEAS_NUEVAS=$(wc -l < comentarios_respondidos.txt)
-          echo "✅ comentarios_respondidos.txt:"
-          echo "   - Total líneas: $LINEAS_NUEVAS"
-          if [ "$LINEAS_NUEVAS" -gt 0 ]; then
-            echo "   - Últimas 5 respuestas:"
-            tail -5 comentarios_respondidos.txt | sed 's/^/     /'
-          fi
-        fi
-        
-        if [ -f "memoria_conversaciones.json" ]; then
-          USUARIOS=$(grep -c '"autor_id"' memoria_conversaciones.json 2>/dev/null || echo "0")
-          echo "✅ memoria_conversaciones.json:"
-          echo "   - Tamaño: $(du -h memoria_conversaciones.json | cut -f1)"
-          echo "   - Usuarios en memoria: $USUARIOS"
-        fi
-        
-        echo ""
-        echo "📋 Reportes generados:"
-        REPORTES_800RPD=$(ls -la reporte_*.json 2>/dev/null | wc -l)
-        if [ "$REPORTES_800RPD" -gt 0 ]; then
-          ls -la reporte_*.json | tail -1
-          echo "   📈 Total reportes: $REPORTES_800RPD"
-          
-          # Extraer estadísticas del último reporte
-          ULTIMO_REPORTE=$(ls -t reporte_*.json 2>/dev/null | head -1)
-          if [ -f "$ULTIMO_REPORTE" ]; then
-            RESPUESTAS=$(grep '"respuestas_exitosas"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
-            PROCESADOS=$(grep '"comentarios_procesados"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
-            echo "   📊 Esta ejecución: $RESPUESTAS respuestas de $PROCESADOS procesados"
-          fi
-        else
-          echo "   (No se generaron reportes en esta ejecución)"
-        fi
-        
-        echo ""
-        echo "🔄 Cambios pendientes en Git:"
-        git status --porcelain
-
-    # Paso 7: Guardar memoria y proyectar 800 RPD
-    - name: 💾 Guardar memoria y calcular proyección 800 RPD
-      run: |
-        # Configurar Git
         git config --local user.email "action@github.com"
-        git config --local user.name "Bot Prosperidad Divina 800RPD"
-        
-        # Sincronización con repositorio remoto
-        echo "🔄 Sincronizando repositorio..."
-        git pull --rebase origin main || {
-          echo "⚠️  Rebase falló, intentando merge..."
-          git pull --no-rebase origin main || echo "⚠️  Continuando sin pull..."
-        }
-        
-        # Añadir archivos importantes
-        git add comentarios_respondidos.txt memoria_conversaciones.json reporte_*.json
-        
-        # Verificar cambios
-        if ! git diff --staged --quiet; then
-          # Calcular estadísticas para 800 RPD
-          FECHA=$(date +'%d/%m/%Y %H:%M UTC')
-          COMENTARIOS_TOTAL=$(wc -l < comentarios_respondidos.txt 2>/dev/null || echo "0")
-          
-          if [ -f "memoria_conversaciones.json" ]; then
-            USUARIOS_MEMORIA=$(grep -c '"autor_id"' memoria_conversaciones.json 2>/dev/null || echo "0")
-          else
-            USUARIOS_MEMORIA="0"
-          fi
-          
-          # Extraer estadísticas del último reporte
-          ULTIMO_REPORTE=$(ls -t reporte_*.json 2>/dev/null | head -1)
-          if [ -f "$ULTIMO_REPORTE" ]; then
-            RESPUESTAS_ESTA_EJECUCION=$(grep '"respuestas_exitosas"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
-            GEMINI_EXITOSAS=$(grep '"respuestas_ia_exitosas"' "$ULTIMO_REPORTE" | grep -o '[0-9]*' | tail -1)
-            DURACION=$(grep '"duracion_minutos"' "$ULTIMO_REPORTE" | grep -o '[0-9.]*' | tail -1)
-          else
-            RESPUESTAS_ESTA_EJECUCION="0"
-            GEMINI_EXITOSAS="0"
-            DURACION="0"
-          fi
-          
-          # Proyección diaria para 800 RPD
-          if [ "$RESPUESTAS_ESTA_EJECUCION" -gt 0 ]; then
-            PROYECCION_DIARIA=$((RESPUESTAS_ESTA_EJECUCION * 48))
-            PORCENTAJE_800=$((PROYECCION_DIARIA * 100 / 800))
-          else
-            PROYECCION_DIARIA="0"
-            PORCENTAJE_800="0"
-          fi
-          
-          # Commit con información detallada para 800 RPD
-          git commit -m "🎯 800RPD Update - $FECHA | 📊 Total: $COMENTARIOS_TOTAL | 👥 Users: $USUARIOS_MEMORIA | ✨ Esta exec: $RESPUESTAS_ESTA_EJECUCION | 🤖 Gemini: $GEMINI_EXITOSAS | 📈 Proyección: ${PROYECCION_DIARIA}RPD (${PORCENTAJE_800}%)"
-          
-          # Push con múltiples intentos
-          echo "📤 Guardando cambios..."
-          PUSH_SUCCESS=false
-          
-          if git push origin main; then
-            PUSH_SUCCESS=true
-          elif git pull --rebase origin main && git push origin main; then
-            PUSH_SUCCESS=true
-          elif git pull --no-rebase origin main && git push origin main; then
-            PUSH_SUCCESS=true
-          elif git push --force-with-lease origin main; then
-            PUSH_SUCCESS=true
-            echo "⚠️  Usado force push - revisar manualmente"
-          fi
-          
-          if [ "$PUSH_SUCCESS" = true ]; then
-            echo "✅ Memoria guardada exitosamente"
-            echo ""
-            echo "📊 ESTADÍSTICAS 800 RPD:"
-            echo "   - Total comentarios BD: $COMENTARIOS_TOTAL"
-            echo "   - Usuarios en memoria: $USUARIOS_MEMORIA"
-            echo "   - Esta ejecución: $RESPUESTAS_ESTA_EJECUCION respuestas"
-            echo "   - Gemini exitosas: $GEMINI_EXITOSAS"
-            echo "   - Duración: ${DURACION} minutos"
-            echo "   - Proyección diaria: ${PROYECCION_DIARIA} RPD"
-            echo "   - Progreso hacia 800: ${PORCENTAJE_800}%"
-          else
-            echo "❌ ERROR: Push falló después de múltiples intentos"
-            exit 1
-          fi
-          
-        else
-          echo "ℹ️  Sin cambios en esta ejecución"
-          echo "💡 Posibles razones:"
-          echo "   • No había comentarios nuevos disponibles"
-          echo "   • Todos los comentarios recientes ya fueron procesados"
-          echo "   • Comentarios filtrados por criterios de validación"
-        fi
-
-    # Paso 8: Limpieza inteligente para 800 RPD
-    - name: 🧹 Limpieza optimizada para 800 RPD
-      run: |
-        echo "🗂️  Gestión de reportes (800 RPD genera ~48 reportes/día)..."
-        REPORTES_COUNT=$(ls reporte_*.json 2>/dev/null | wc -l)
-        
-        # Para 800 RPD, mantener reportes de últimos 2 días (96 reportes)
-        if [ "$REPORTES_COUNT" -gt 96 ]; then
-          echo "   📊 Reportes actuales: $REPORTES_COUNT"
-          echo "   🧹 Manteniendo últimos 96 reportes (2 días de 800 RPD)"
-          
-          # Eliminar reportes más antiguos
-          ls -t reporte_*.json | tail -n +97 | xargs rm -f
-          
-          # Commitear limpieza si hay cambios
-          git add . 
-          if ! git diff --staged --quiet; then
-            ELIMINADOS=$((REPORTES_COUNT - 96))
-            git commit -m "🧹 Limpieza 800RPD: $ELIMINADOS reportes antiguos eliminados (mantenidos 96)"
-            
-            if git push origin main || git push --force-with-lease origin main; then
-              echo "   ✅ $ELIMINADOS reportes eliminados y guardado"
-            else
-              echo "   ⚠️  Limpieza OK, push falló (no crítico)"
-            fi
-          fi
-        else
-          echo "   ✅ $REPORTES_COUNT reportes, no requiere limpieza"
-        fi
-
-    # Paso 9: Mensaje de éxito 800 RPD
-    - name: 🎉 Confirmación final 800 RPD
-      if: success()
-      run: |
-        echo ""
-        echo "🎯 ¡EJECUCIÓN 800 RPD COMPLETADA EXITOSAMENTE! 🎯"
-        echo ""
-        echo "📊 CONFIGURACIÓN ACTIVA:"
-        echo "   🤖 Modelo: Gemini 2.5 Flash-Lite"
-        echo "   ⏰ Frecuencia: Cada 30 minutos (48 ejecuciones/día)"
-        echo "   📝 Comentarios/ejecución: 17"
-        echo "   🎯 Objetivo diario: 800 RPD"
-        echo "   📈 Proyección real: 816 RPD"
-        echo "   🛡️  Margen de seguridad: 184 RPD disponibles"
-        echo ""
-        echo "🔄 PRÓXIMA EJECUCIÓN: En 30 minutos"
-        echo "💾 Memoria persistente mantenida entre ejecuciones"
-        echo "📊 Reportes detallados generados automáticamente"
-        echo "✨ Las bendiciones fluyen de manera optimizada"
-        echo ""
-        
-    # Paso 10: Manejo de errores para 800 RPD
-    - name: 🚨 Manejo de errores 800 RPD
-      if: failure()
-      run: |
-        echo ""
-        echo "❌ ERROR EN EJECUCIÓN 800 RPD"
-        echo ""
-        echo "🔍 Diagnóstico para configuración 800 RPD:"
-        echo "   • Error en APIs (YouTube/Gemini Flash-Lite)"
-        echo "   • Límites de cuota 1,000 RPD excedidos (improbable)"
-        echo "   • Conectividad intermitente"
-        echo "   • Insuficientes comentarios nuevos disponibles"
-        echo "   • Conflictos Git (manejo automático implementado)"
-        echo ""
-        echo "🔄 RECUPERACIÓN AUTOMÁTICA:"
-        echo "   • Próximo intento en 30 minutos"
-        echo "   • Memoria existente preservada"
-        echo "   • Configuración 800 RPD mantenida"
-        echo "   • 47 oportunidades más hoy para alcanzar objetivo"
-        echo ""
+        git config --local user.name "Generador Horarios"
+        git add bot-ejecutor.yml
+        git commit -m "Horarios aleatorios para $(date +%Y-%m-%d)" || echo "Sin cambios"
+        git push origin main || git push --force-with-lease origin main
