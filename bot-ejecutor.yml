@@ -1,0 +1,73 @@
+name: Bot Prosperidad Divina - Ejecución Aleatoria
+
+on:
+  schedule:
+    - cron: '34 6 * * *'
+    - cron: '1 7 * * *'
+    - cron: '34 8 * * *'
+    - cron: '24 9 * * *'
+    - cron: '12 10 * * *'
+    - cron: '13 11 * * *'
+    - cron: '29 12 * * *'
+    - cron: '36 13 * * *'
+    - cron: '19 14 * * *'
+    - cron: '49 15 * * *'
+    - cron: '40 16 * * *'
+    - cron: '39 17 * * *'
+    - cron: '22 18 * * *'
+    - cron: '59 19 * * *'
+    - cron: '44 20 * * *'
+    - cron: '16 21 * * *'
+    - cron: '45 22 * * *'
+    - cron: '45 23 * * *'
+    - cron: '48 0 * * *'
+    - cron: '53 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  ejecutar-bot:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install google-generativeai google-auth google-auth-oauthlib google-api-python-client python-dateutil
+        
+    - name: Ejecutar Bot (5 comentarios exactos)
+      env:
+        GEMINI_API_KEY: AIzaSyAet7CWrWUtBdq5dX8GMcyuvfRaSZQ389g
+        YOUTUBE_CREDENTIALS_COMMENTS: {
+  "token": "ya29.a0AS3H6NxiefT8FdjjF2fECy6PZdGUghGXqPD8WOwbbNiVRfMeCq1Bs_MAQXG4d5G-OPRhs6iyQrgbWQrz1JGsauxUrW6Y-945DCFmJ08m9XAyqizZBi-tUbkaQHK0c_N4-GMgxw60FXG_JhlW7Bontopuz4tQgnnqBXPC5X1vXA_A60HsWrub3eBSt9Eva2rVBrKEil4aCgYKAcASARISFQHGX2MidHrae49U7tcaUf7SH6wipw0206",
+  "refresh_token": "1//01viCn-DvUDhZCgYIARAAGAESNwF-L9IrW7kiSEGa91C7zpZ3sreMizmxmnm3_fVcy02L2PJ_3TvA0mhDwe30N1sgo_j_nhoPZw0",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "client_id": "370965148704-2uvfjhi8quhrohgle4cfprsjqkcjm2g1.apps.googleusercontent.com",
+  "client_secret": "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",
+  "scopes": [
+    "https://www.googleapis.com/auth/youtube.force-ssl"
+  ]
+}
+      run: |
+        echo "Ejecutando bot: 5 comentarios exactos"
+        echo "Horario aleatorio: $(date +'%H:%M')"
+        python bot_prosperidad_divina.py
+        
+    - name: Guardar cambios
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Bot 6000pts"
+        git add .
+        if ! git diff --staged --quiet; then
+          git commit -m "6000pts - $(date +'%d/%m %H:%M') - 5 comentarios"
+          git push origin main || git push --force-with-lease origin main
+        fi
